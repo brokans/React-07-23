@@ -9,6 +9,7 @@ import LisaToode from './pages/LisaToode';
 function App() {
   return (
     // className on reactile omane, kogu kood peab olema div'i vahel
+    
     <div className="App">
       <Link to="avaleht">
         <img className="pilt" src="https://th.bing.com/th/id/R.5ecd5ae33c75e812c2e0b3b95d430d41?rik=GurWTZ4t7U5C5A&pid=ImgRaw&r=0" alt="" />
