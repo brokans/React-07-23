@@ -1,0 +1,28 @@
+.pilt {
+  width: 170px;
+}
+
+.pilt:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.pilt:active {
+  border-radius: 12px;
+  /* transform: rotate(180deg); */
+}
+
+.nupp {
+  background-color:antiquewhite;
+  color:brown;
+}
+
+.nupp:hover {
+  background-color: bisque;
+  border: 2px dotted rgb(232, 169, 11);
+}
+
+.nupp:active {
+  background-color: rgb(10, 150, 220);
+  text-decoration: underline;
+} 
