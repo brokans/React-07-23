@@ -1,7 +1,7 @@
 .rectangle {
   height: 7px;
   width: 60px;
-  background-color: brown;
+  background-color: rgb(42, 99, 165);
   margin: 50px auto;
 }
 
@@ -28,6 +28,12 @@ cursor: pointer;
   scale: 1.1;
   transition: 0.5s;
   box-shadow: 0 8px 100px 0px;
+}
+
+.header {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-align: center;
+  color: grey;
 }
 
 .main-link {

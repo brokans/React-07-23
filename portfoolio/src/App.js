@@ -8,7 +8,9 @@ function App() {
   return (
     <div className="App">
       <img className='main-picture' src="https://static.vecteezy.com/system/resources/previews/000/518/756/original/abstract-technology-background-concept-digital-world-map-dot-metallic-blue-on-hi-tech-future-design-vector.jpg" alt="" />
+      <h1 className='header'>Portfoolio Page</h1>
       <div className='rectangle'></div>
+      
       {/* Lingid */}
       <div className='nav-pictures'>
         <Link className='main-link' to="work">

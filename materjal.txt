@@ -1,4 +1,0 @@
-npx create-react-app veebipood, npx - node package exectute terminalis, 
-teeb uue kausta koos node pakkidega, pole vaja eraldi alla laadida 
-settings -> emmet -> add language, kui uues arvutis ja 
-npm install react-router-dom - navigeerimise pakk
