@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <img className='main-picture' src="https://static.vecteezy.com/system/resources/previews/000/518/756/original/abstract-technology-background-concept-digital-world-map-dot-metallic-blue-on-hi-tech-future-design-vector.jpg" alt="" />
       <div className='rectangle'></div>
-
+      {/* Lingid */}
       <div className='nav-pictures'>
         <Link className='main-link' to="work">
           <img src="https://th.bing.com/th/id/OIP.1BmthBHZ-aSylb8XRfRC6gHaGx?pid=ImgDet&rs=1" alt="" />
@@ -24,12 +24,17 @@ function App() {
           <p>Kursuste leht</p>
         </Link>
       </div>
-
+      {/* Ühendused */}
       <Routes>
         <Route path="work" element={<Work />} />
         <Route path="hobbies" element={<Hobbies />} />
         <Route path="courses" element={<Courses />} />
       </Routes>
+
+      <a className="facebook-button" href="https://www.facebook.com/">
+        <img src="/facebook.png" alt="facebook logo"/>
+        <span>Facebook</span>
+      </a>
 
     </div>
   );
