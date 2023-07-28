@@ -11,11 +11,11 @@ function App() {
     // className on reactile omane, kogu kood peab olema div'i vahel
     
     <div className="App">
-      <Link to="avaleht">
+      <Link to="">
         <img className="pilt" src="https://th.bing.com/th/id/R.5ecd5ae33c75e812c2e0b3b95d430d41?rik=GurWTZ4t7U5C5A&pid=ImgRaw&r=0" alt="" />
       </Link>
 
-      <Link to="lisa-toode">
+      <Link to="/lisa-toode">
         <button className="nupp">Lisa toode</button>
       </Link>
 
@@ -24,9 +24,9 @@ function App() {
       </Link>
       
       <Routes>
-        <Route path="avaleht" element={<Avaleht/>} />;
+        <Route path="" element={<Avaleht/>} />;
         <Route path="ostukorv" element={<Ostukorv/>} />;
-        <Route path="lisa-toode" element={<LisaToode/>} />;
+        <Route path="/lisa-toode" element={<LisaToode/>} />;
       </Routes>
 
     </div>
