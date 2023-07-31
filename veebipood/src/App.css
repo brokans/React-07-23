@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap');
+
 .pilt {
   width: 170px;
 }
@@ -26,3 +28,22 @@
   background-color: rgb(10, 150, 220);
   text-decoration: underline;
 } 
+
+.kuldne {
+  color: goldenrod;
+}
+
+.hele-leht {
+  background-color: aliceblue;
+  min-height: 100vh;
+}
+
+.tume-leht {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
