@@ -11,17 +11,17 @@ const[n2itaTelLouna, mN2itaTelLouna] = useState(false);
     <div>See on kontaktide leht, nähtav localhost:3000/kontakt aadressil</div>
     <div>Võta meiega ühendust:</div>
     <br />
-    <div onClick={() => mN2itaTelKristiine(!n2itaTelKristiine)}>Kristiine Keskus</div>
-    {n2itaTelKristiine && <div>+372732776</div>}
-    <div>Endla 45, Tallinn</div>
+    <div className={n2itaTelKristiine === true ? 'valitud':undefined} onClick={() => mN2itaTelKristiine(!n2itaTelKristiine)}>Kristiine Keskus</div>
+    {n2itaTelKristiine && <div className='valitud'>+372732776</div>}
+    <div className={n2itaTelKristiine === true ? 'valitud':undefined}>Endla 45, Tallinn</div>
     <br />
-    <div onClick={() => mN2itaTelViru(!n2itaTelViru)}>Viru Keskus</div>
-    {n2itaTelViru && <div>+372137724</div>}
-    <div>Viru Väljak 4, Tallinn</div>
+    <div className={n2itaTelViru === true ? 'valitud':undefined} onClick={() => mN2itaTelViru(!n2itaTelViru)}>Viru Keskus</div>
+    {n2itaTelViru && <div className='valitud'>+372137724</div>}
+    <div className={n2itaTelViru === true ? 'valitud':undefined}>Viru Väljak 4, Tallinn</div>
     <br />
-    <div onClick={() => mN2itaTelLouna(!n2itaTelLouna)}>Lõuna Keskus</div>
-    {n2itaTelLouna && <div>+372878678</div>}
-    <div>Jaama 207, Tartu</div>
+    <div className={n2itaTelLouna === true ? 'valitud':undefined} onClick={() => mN2itaTelLouna(!n2itaTelLouna)}>Lõuna Keskus</div>
+    {n2itaTelLouna && <div className='valitud'>+372878678</div>}
+    <div className={n2itaTelLouna === true ? 'valitud':undefined}>Jaama 207, Tartu</div>
   </div>);
 }
 
