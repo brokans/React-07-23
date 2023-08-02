@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 // rfce lühend teeb põhja
 function Ostukorv() {
-  const[ostukorv, uOstukorv] = useState("Kali", "Õun", "Sai");
+  const[ostukorv, uOstukorv] = useState(["Kali", "Õun", "Sai"]);
 
 
   return (
