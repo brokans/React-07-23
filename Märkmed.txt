@@ -1,0 +1,23 @@
+02.08.23 
+
+
+
+
+
+
+
+// FIREBASE GOOGLE SIDUMINE TERMINALIS
+// npm install firebase, et googlega siduda
+// npm install -g firebase-tools
+// firebase login
+// firebase init
+// hosting variant sealt
+// public kustutada, build asemele -> single-page=yes -> automatic-build=no
+// npm run build
+// firebase deploy
+// npm start
+
+// LEHE UUENDAMINE
+// Samal ajal kui server töötab lokaalselt, uues terminalis npm run build, uuendab lehte
+// firebase deploy laeb failid uuesti üles
+// Kui muudatusi broweseris näha pole siis Hard Reload, CTRL+SHIFT+R

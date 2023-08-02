@@ -5,6 +5,9 @@ import Ostukorv from './pages/Ostukorv';
 import LisaToode from './pages/LisaToode';
 import Seaded from './pages/Seaded';
 import MitteLeitud from './pages/MitteLeitud';
+import Hinnad from './pages/Hinnad';
+import Poed from './pages/Poed';
+import Tooted from './pages/Tooted';
 import { useState } from 'react';
 
 // FIREBASE GOOGLE SIDUMINE TERMINALIS
@@ -28,7 +31,7 @@ import { useState } from 'react';
 
 function App() {
   
-  // võtab viimati salvestatud teema kasutusele
+  // salvestab viimati valitud teema lokaalselt, säilib ka peale refreshi
   const [teema, uTeema] = useState(localStorage.getItem("teema"));
   
   //salvestab heleda teema lokaalselt
@@ -68,6 +71,18 @@ function App() {
       <Link to="seaded">
         <button className="nupp">Seaded</button>
       </Link>
+      
+      <Link to="hinnad">
+        <button className="nupp">Hinnad</button>
+      </Link>
+
+      <Link to="poed">
+        <button className="nupp">Poed</button>
+      </Link>
+
+      <Link to="Tooted">
+        <button className="nupp">Tooted</button>
+      </Link>
 
 
       <Routes>
@@ -76,6 +91,9 @@ function App() {
         <Route path="/lisa-toode" element={<LisaToode/>} />;
         <Route path="/seaded" element={<Seaded/>} />;
         <Route path="*" element={<MitteLeitud/>} />;
+        <Route path="/hinnad" element={<Hinnad/>} />;
+        <Route path="/poed" element={<Poed/>} />;
+        <Route path="/tooted" element={<Tooted/>} />;
       </Routes>
 
     </div>

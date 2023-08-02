@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
 
 // rfce lühend teeb põhja
 function Ostukorv() {
+  const[ostukorv, uOstukorv] = useState("Kali", "Õun", "Sai");
+
+
   return (
     <div>
+      <div>
+        {ostukorv.map(toode => <div>{toode}</div> )}
+      </div>
+      
       <div>Ostukorv on tühi</div>
+
       <Link to="/lisa-toode">E-Poodi</Link>
     </div>
     

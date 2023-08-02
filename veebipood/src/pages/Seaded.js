@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 function Seaded() {
-    const[keel, uuendaKeel] = useState("est");
+  // Salvestab keele valiku lokaalselt
+    const[keel, uuendaKeel] = useState(localStorage.getItem("keel") || "est");
     // let kasutaja = "asdasdas";
 
     // const uuendaKasutaja = () => {
@@ -10,11 +11,24 @@ function Seaded() {
     // }
 
     // KODUTÖÖ: LOCALSTORAGE
+    const keelEE = () => {
+      uuendaKeel("est");
+      localStorage.setItem("keel", "est");
+    }
+
+    const keelEng = () => {
+      uuendaKeel("eng");
+      localStorage.setItem("keel", "eng");
+    }
+    const keelRus = () => {
+      uuendaKeel("rus");
+      localStorage.setItem("keel", "rus");
+    }
   return (
     <div>
-        <button onClick={() => uuendaKeel("est")}>Muuda leht eesti keelseks</button>
-        <button onClick={() => uuendaKeel("eng")}>In English</button>
-        <button onClick={() => uuendaKeel("rus")}>Ruskii</button>
+        <button onClick={keelEE}>Muuda leht eesti keelseks</button>
+        <button onClick={keelEng}>In English</button>
+        <button onClick={keelRus}>Ruskii</button>
         {keel === "est" && <div>Leht on eesti keelne</div>}
         {keel === "eng" && <div>Page is in English</div>}
         {keel === "rus" && <div>Ruskii Isõk</div>}
