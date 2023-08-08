@@ -8,6 +8,9 @@ import MitteLeitud from './pages/MitteLeitud';
 import Hinnad from './pages/Hinnad';
 import Poed from './pages/Poed';
 import Tooted from './pages/Tooted';
+import MuudaToode from './pages/MuudaToode';
+import YksToode from './pages/YksToode';
+import HaldaTooted from './pages/HaldaTooted';
 import { useState } from 'react';
 
 // FIREBASE GOOGLE SIDUMINE TERMINALIS
@@ -80,8 +83,20 @@ function App() {
         <button className="nupp">Poed</button>
       </Link>
 
-      <Link to="Tooted">
+      <Link to="tooted">
         <button className="nupp">Tooted</button>
+      </Link>
+
+      <Link to="muudaTooted">
+        <button className="nupp">Muuda Toode</button>
+      </Link>
+
+      <Link to="yksToode">
+        <button className="nupp">Üks Toode</button>
+      </Link>
+
+      <Link to="haldaTooteid">
+        <button className="nupp">Halda Tooteid</button>
       </Link>
 
 
@@ -94,6 +109,10 @@ function App() {
         <Route path="/hinnad" element={<Hinnad/>} />;
         <Route path="/poed" element={<Poed/>} />;
         <Route path="/tooted" element={<Tooted/>} />;
+        <Route path="/muudaTooted" element={<MuudaToode/>} />;
+        <Route path="/yksToode" element={<YksToode/>} />;
+        <Route path="/haldaTooteid" element={<HaldaTooted/>} />;
+
       </Routes>
 
     </div>

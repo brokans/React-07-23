@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import poedFailist from "../data/poed.json"
 // JAVASCRIPT
 function Poed() {
-  const [poed, uPoed] = useState(["Ülemiste", "Viimsi", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine"]);
-  
+  const [poed, uPoed] = useState(poedFailist);
+  // salvestab inputi sisestatud teksti
+  const poodViide = useRef();
+
   const reset = () => {
-    uPoed(["Ülemiste", "Viimsi", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine"]);  
+    uPoed(poedFailist);  
+  }
+
+  const lisa = () => {
+    poed.push(poodViide.current.value);
+    uPoed(poed.slice());
   }
   
-  
+  // SORTEERI
   const sorteeriAZ = () => {
     poed.sort((a, b) => a.localeCompare(b, "et"));
     uPoed(poed.slice());
@@ -34,6 +42,7 @@ function Poed() {
     uPoed(poed.slice());
   }
 
+  // FILTRID
   const filtreeriEgaLoppevad = () => {
     // salvestab sõnad mis lõpevad e'ga
     const vastus = poed.filter(yksPood => yksPood.endsWith("e"));
@@ -60,13 +69,29 @@ function Poed() {
     uPoed(vastus);
   }
 
+  // KOKKUARVUTUS - liidame kõik poodide tähtede arvud 
+  const arvutaKokku = () => {
+    // let muutuja väärtus saab muutuda pidevalt 
+    let summa = 0;
+    poed.forEach(yksPood => summa = summa + yksPood.length)
+    return summa;
+  }
+
+
+
 
     return (
         // HTML
     <div>
         <button onClick={reset}>Reset</button>
         <div>Poode: {poed.length} tk</div>
+        <div>Tähemärke: {arvutaKokku()} </div>
         <div>Sorteeri: </div>
+        <br />
+        <label htmlFor="">Poe nimi </label> <br />
+        <input ref={poodViide} type="text" name="" id="" /> <br />
+        <button onClick={lisa}>Lisa</button> <br /> <br />
+
         <button onClick={sorteeriAZ}>Sorteeri A-Z</button>
         <button onClick={sorteeriZA}>Sorteeri Z-A</button>
         <button onClick={sorteeriT2htedeArvKasv}>Sorteeri tähtede arv kasvavalt</button>
