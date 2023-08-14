@@ -1,10 +1,10 @@
 import React from 'react';
-import {useRef, useState } from 'react';
+import {useState } from 'react';
 import joogidFail from "../data/joogidFail.json"
 
 function Halda() {
       const [joogid, uJoogid] = useState(joogidFail);
-    
+  
       function kustuta(index) {
         joogid.splice(index, 1);
         uJoogid(joogid.slice());

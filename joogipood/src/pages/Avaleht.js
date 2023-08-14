@@ -1,5 +1,5 @@
 import React from 'react';
-import {useRef, useState } from 'react';
+import {useState } from 'react';
 import joogidFail from "../data/joogidFail.json"
 
 function Avaleht() {
