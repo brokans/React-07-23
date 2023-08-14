@@ -1,5 +1,5 @@
-import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { Link, Route, Routes } from 'react-router-dom';
 import Tagasisided from './pages/Tagasisided';
 import TagasisideAndja from './pages/TagasisideAndja';
 import Sorteerimine from './pages/Sorteerimine';

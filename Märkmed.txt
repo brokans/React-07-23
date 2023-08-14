@@ -25,3 +25,5 @@ npm install react-router-dom
 // Samal ajal kui server töötab lokaalselt, uues terminalis npm run build, uuendab lehte
 // firebase deploy laeb failid uuesti üles
 // Kui muudatusi broweseris näha pole siis Hard Reload, CTRL+SHIFT+R
+
+
