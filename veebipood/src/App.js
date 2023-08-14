@@ -87,12 +87,10 @@ function App() {
         <button className="nupp">Tooted</button>
       </Link>
 
-      <Link to="muudaTooted">
-        <button className="nupp">Muuda Toode</button>
+      <Link to="muudaTooted/:index">
       </Link>
 
-      <Link to="yksToode">
-        <button className="nupp">Üks Toode</button>
+      <Link to="yksToode/:yrknr">
       </Link>
 
       <Link to="haldaTooteid">
@@ -109,8 +107,8 @@ function App() {
         <Route path="/hinnad" element={<Hinnad/>} />;
         <Route path="/poed" element={<Poed/>} />;
         <Route path="/tooted" element={<Tooted/>} />;
-        <Route path="/muudaTooted" element={<MuudaToode/>} />;
-        <Route path="/yksToode" element={<YksToode/>} />;
+        <Route path="/muudaTooted/:index" element={<MuudaToode/>} />;
+        <Route path="/yksToode/:jrknr" element={<YksToode/>} />;
         <Route path="/haldaTooteid" element={<HaldaTooted/>} />;
 
       </Routes>
