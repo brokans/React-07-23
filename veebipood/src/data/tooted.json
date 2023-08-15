@@ -1,5 +1,5 @@
 [
-    {"nimi": "BMW", "hind": 1232232, "pilt": "https://www.bing.com/images/blob?bcid=qGo99WD8QPQFokaKknWC6TkEULMR.....9w", "aktiivne": true},
-    {"nimi": "Audi", "hind": 80122, "pilt": "https://www.bing.com/images/blob?bcid=qKHJ3gud7vQFokaKknWC6TkEULMR.....y8", "aktiivne": true},
-    {"nimi": "Jaguar", "hind": 90222, "pilt": "https://www.bing.com/images/blob?bcid=RB-8H6wBVvQFqxcxoNWLuD9SqbotqVTdP.w", "aktiivne": true}
+    {"nimi": "BMW", "hind": 1232232, "pilt": "", "aktiivne": true},
+    {"nimi": "Audi", "hind": 80122, "pilt": "", "aktiivne": true},
+    {"nimi": "Jaguar", "hind": 90222, "pilt": "", "aktiivne": true}
 ]

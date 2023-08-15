@@ -14,8 +14,8 @@ function Ostukorv() {
 
   //ostukorvist kustutamine
   const kustuta = (jrknr) => {
-    ostukorv.splice(jrknr,1);     // sellest alates mitu tk
-    uOstukorv(ostukorv.slice())
+    ostukorv.splice(jrknr, 1); // sellest alates mitu tk
+    uOstukorv(ostukorv.slice());
   };
 
   //ostukorvi tühjendamine
@@ -24,12 +24,22 @@ function Ostukorv() {
     uOstukorv(ostukorv.slice());
   };
 
+  const ostukorviSumma = () => {
+    let summa = 0;
+    ostukorv.forEach((toode) => (summa = summa + toode.hind));
+    return summa;
+  };
+
   return (
     <div>
       <div>
-        <button onClick={tyhjenda}>Tühjenda</button>
+        {ostukorv.length > 0 && <button onClick={tyhjenda}>Tühjenda</button>}
+        {ostukorv.length > 0 && (
+          <div>Ostukorvis on {ostukorv.length} toodet</div>
+        )}
+        {/* dünaamika: mingil juhul on märge ostukorv on tühi, mingil juhul mitte */}
         {ostukorv.map((toode, jrknr) => (
-          <div>
+          <div key={jrknr}>
             {jrknr}
             <div>{toode.nimi}</div>
             <div>{toode.hind}€</div>
@@ -40,12 +50,13 @@ function Ostukorv() {
         ))}
       </div>
       {/* Dünaamika: ostukorv on tühi kui esemed nullis ja ei näita teksti, kui esemeid on */}
-      {ostukorv.length === 0 && ( 
+      {ostukorv.length === 0 && (
         <>
           <div>Ostukorv on tühi</div>
           <Link to="/tooted">E-Poodi</Link>
         </>
       )}
+      {ostukorv.length > 0 && <div>Kogusumma: {ostukorviSumma()}€</div>}
     </div>
   );
 }

@@ -13,7 +13,8 @@ function HaldaTooted() {
     <div>
       {/* kuvab tooted koos järjekorra numbriga */}
       {tooted.map((toode, jrknr) => (
-        <div>
+        // Kui toode on aktiivne siis üks css, kui mitte siis teine
+        <div key={toode.nimi} className={toode.aktiivne === true ? "aktiivne" : "mitteaktiivne"}>
           {jrknr}
           <div>{toode.nimi}</div>
           <div>{toode.hind}</div>

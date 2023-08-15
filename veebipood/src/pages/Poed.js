@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import poedFailist from "../data/poed.json";
-import {Link} from 'react-router-dom';
-
+import { Link } from "react-router-dom";
+import YksikPood from "./YksikPood";
 
 // JAVASCRIPT
 function Poed() {
@@ -17,7 +17,11 @@ function Poed() {
   };
   // Lisa uus pood
   const lisa = () => {
-    poed.push({"nimi": poodViide.current.value, "aeg": aegViide.current.value,"tel": telViide.current.value});
+    poed.push({
+      nimi: poodViide.current.value,
+      aeg: aegViide.current.value,
+      tel: telViide.current.value,
+    });
     uPoed(poed.slice());
   };
 
@@ -94,7 +98,6 @@ function Poed() {
       <button onClick={reset}>Reset</button>
       <div>Poode: {poed.length} tk</div>
       <div>Tähemärke: {arvutaKokku()} </div>
-      
       <br />
       {/* POODIDE LISAMINE */}
       {/* Poe nimi */}
@@ -124,15 +127,16 @@ function Poed() {
       <button onClick={filtreeriKelleKolmasTähtI}>Kolmas täht i</button>
       {/* Kuvab poodide nimed */}
       {poed.map((element, index) => (
-        <div>
-          <span>{element.nimi}{" "}{element.aeg}{" "}{element.tel}</span>
+        <div key={YksikPood.nimi}>
+          <span>
+            {element.nimi} {element.aeg} {element.tel}
+          </span>
           {/*ÜHE POE VAATAMINE  */}
           <Link to={"/yksikPood/" + index}>
             <button>Detailsem</button>
           </Link>
           {/* Kustutamisnupp */}
           <button onClick={() => kustuta(index)}>X</button>
-          
         </div>
       ))}{" "}
     </div>

@@ -25,7 +25,7 @@ function Hinnad() {
         <button onClick={sorteeri}>Sorteeri</button>
         <button onClick={filtreeri}>Filtreeri</button>
         {/* Kuvab hinnad üksteise all */}
-        {hinnad.map(hind => <div>Hind: {hind}€</div> )}
+        {hinnad.map(hind => <div key={hind}>Summa kokku: {hind}€</div> )}
         <div>Kokku: {arvutaKokku()}€</div>
     </div>
   )

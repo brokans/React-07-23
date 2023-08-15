@@ -91,9 +91,6 @@ function App() {
       <Link to="muudaTooted/:index">
       </Link>
 
-      <Link to="yksToode/:yrknr">
-      </Link>
-
       <Link to="haldaTooteid">
         <button className="nupp">Halda Tooteid</button>
       </Link>
@@ -120,3 +117,4 @@ function App() {
 }
 
 export default App;
+// 1. Muuda toode objekti kujule
