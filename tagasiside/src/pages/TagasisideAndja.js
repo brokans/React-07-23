@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import andjateFail from "../data/nimed.json";
+import { Link } from "react-router-dom";
 
 function TagasisideAndja() {
   const [andjad, uAndjad] = useState(andjateFail);
@@ -66,6 +67,9 @@ function TagasisideAndja() {
         <div key={element}>
           {element}
           <button onClick={() => kustuta(index)}>X</button>
+          <Link to={"/yks-andja" + index}>
+            <button>Vaata lähemalt</button>
+          </Link>
         </div>
       ))}
     </div>

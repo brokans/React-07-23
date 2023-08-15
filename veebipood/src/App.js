@@ -12,6 +12,7 @@ import MuudaToode from './pages/MuudaToode';
 import YksToode from './pages/YksToode';
 import HaldaTooted from './pages/HaldaTooted';
 import { useState } from 'react';
+import YksikPood from './pages/YksikPood';
 
 // FIREBASE GOOGLE SIDUMINE TERMINALIS
 // npm install firebase, et googlega siduda
@@ -110,6 +111,7 @@ function App() {
         <Route path="/muudaTooted/:index" element={<MuudaToode/>} />;
         <Route path="/yksToode/:jrknr" element={<YksToode/>} />;
         <Route path="/haldaTooteid" element={<HaldaTooted/>} />;
+        <Route path="/yksikPood/:index" element={<YksikPood/>} />;
 
       </Routes>
 
