@@ -8,10 +8,10 @@ function YksToode() {
   // const [kogus, uuendaKogus]
   // kui on loogselised, siis võib olla mitu tahes
   // peab olema sama mis app.js Link's 
-  const {jrknr} = useParams();
+  const {nimi} = useParams();
   // const {id, name} = useSearchParams(); 
 
-  const leitud = tootedFailist[jrknr];
+  const leitud = tootedFailist.find(toode => toode.nimi === nimi);
   // undefined
   if (leitud === undefined){
     return <div>Tooteid ei leitud!</div>
@@ -20,11 +20,11 @@ function YksToode() {
 
   return (
     <div>
-      <div>Toote järjekorranumber: {jrknr}</div>
+      {/* <div>Toote järjekorranumber: {nimi}</div> */}
       <div>Toote nimi: {leitud.nimi}</div>
       <div>Toote hind: {leitud.hind}</div>
       <div>Toote kirjeldus: ....</div>
-      <img src={leitud.pilt} alt="" />
+      <img className="pilt" src={leitud.pilt} alt="" />
 
     </div>
   )

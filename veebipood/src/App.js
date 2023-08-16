@@ -106,7 +106,7 @@ function App() {
         <Route path="/poed" element={<Poed/>} />;
         <Route path="/tooted" element={<Tooted/>} />;
         <Route path="/muudaTooted/:index" element={<MuudaToode/>} />;
-        <Route path="/yksToode/:jrknr" element={<YksToode/>} />;
+        <Route path="/yksToode/:nimi" element={<YksToode/>} />;
         <Route path="/haldaTooteid" element={<HaldaTooted/>} />;
         <Route path="/yksikPood/:index" element={<YksikPood/>} />;
 
