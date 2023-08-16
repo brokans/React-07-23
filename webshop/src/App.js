@@ -42,19 +42,19 @@ function App() {
       <div>Global</div>
 
       <Link to="">
-        <button>Maintain Products</button>
+        <button>Home Page</button>
       </Link>
       <Link to="cart">
-        <button>Maintain Products</button>
+        <button>Cart</button>
       </Link>
       <Link to="contact">
-        <button>Maintain Products</button>
+        <button>Contact Us</button>
       </Link>
       <Link to="product">
-        <button>Maintain Products</button>
+        <button>Single Product</button>
       </Link>
       <Link to="shops">
-        <button>Maintain Products</button>
+        <button>Shops</button>
       </Link>
 
 
@@ -84,3 +84,7 @@ function App() {
 }
 
 export default App;
+
+// Muuta favicon + Nimi
+// Muuta Font
+// Panna firebase üles

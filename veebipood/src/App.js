@@ -15,14 +15,18 @@ import { useState } from 'react';
 import YksikPood from './pages/YksikPood';
 
 // FIREBASE GOOGLE SIDUMINE TERMINALIS
+// Kõigepealt uus projekt firebase lehel ja siis add firebase to your web app
 // npm install firebase, et googlega siduda
 // npm install -g firebase-tools
 // firebase login
 // firebase init
-// hosting variant sealt
+// hosting configure files variant sealt
+// Existing project -> olemasolev projekt nimekirjast
 // public kustutada, build asemele -> single-page=yes -> automatic-build=no
+// Single page app = yes
+// firebase.json failis lisada "site": "veebileheNimi", hostingusse
 // npm run build
-// firebase deploy
+// firebase deploy --only hosting:veebileheNimi
 // npm start
 
 // LEHE UUENDAMINE
