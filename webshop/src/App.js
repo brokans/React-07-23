@@ -1,5 +1,12 @@
-import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
+
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { useTranslation } from 'react-i18next';
+import { changeLanguage } from "i18next";
+
+import "./App.css";
 import AdminHome from "./pages/admin/AdminHome";
 import AddProduct from "./pages/admin/AddProduct";
 import EditProduct from "./pages/admin/EditProduct";
@@ -13,56 +20,88 @@ import SingleProduct from "./pages/global/SingleProduct";
 import ContactUs from "./pages/global/ContactUs";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
+import NotFound from "./pages/global/NotFound";
 
 
 function App() {
+  const { t, i18n } = useTranslation();
+  
+  function changeLangEE(){
+    i18n.changeLanguage("ee");
+    localStorage.setItem("language", "ee");
+  }
+
+  function changeLangEN() {
+    i18n.changeLanguage("en");
+    localStorage.setItem("language", "en");
+  }
+
   return (
     <div className="App">
-      <div>Admin</div>
+      <Navbar collapseOnSelect expand="lg" className="bg-body-secondary">
+        <Container>
+          <Navbar.Brand as={Link} to="/">
+            Bro WebShop
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="admin">
+                {t("admin")}
+              </Nav.Link>
+              <Nav.Link as={Link} to="contact">
+                {t("contact")}
+              </Nav.Link>
+              <Nav.Link as={Link} to="shops">
+                {t("shops")}
+              </Nav.Link>
+            </Nav>
+            <Nav>
+              <button onClick={changeLangEN}>english</button>
+              <button onClick={changeLangEE}>estonian</button>
+              <Nav.Link as={Link} to="login">
+                {t("login")}
+              </Nav.Link>
+              <Nav.Link as={Link} to="cart">
+                {t("cart")}
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      {/* <div>Admin</div> */}
       <Link to="admin">
-        <button>Admin</button>
       </Link>
       <Link to="admin/add-product">
-        <button>Add Product</button>
       </Link>
       <Link to="admin/edit-product">
-        <button>Edit Product</button>
       </Link>
       <Link to="admin/maintain-categories">
-        <button>Maintain Categories</button>
       </Link>
       <Link to="admin/maintain-shops">
-        <button>Maintain Shops</button>
       </Link>
       <Link to="admin/maintain-products">
-        <button>Maintain Products</button>
       </Link>
       <br />
       <br />
-      <div>Global</div>
-
+      {/* GLOBAL LINGID */}
       <Link to="">
-        <button>Home Page</button>
       </Link>
       <Link to="cart">
-        <button>Cart</button>
       </Link>
       <Link to="contact">
-        <button>Contact Us</button>
       </Link>
       <Link to="product">
-        <button>Single Product</button>
       </Link>
       <Link to="shops">
-        <button>Shops</button>
       </Link>
-
 
       <Routes>
         {/* ADMIN */}
         <Route path="admin" element={<AdminHome />} />
         <Route path="admin/add-product" element={<AddProduct />} />
-        <Route path="admin/edit-product" element={<EditProduct />} />
+        <Route path="admin/edit-product/:productId" element={<EditProduct />} />
         <Route
           path="admin/maintain-categories"
           element={<MaintainCategories />}
@@ -78,6 +117,7 @@ function App() {
         {/* SIGN UP */}
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
@@ -88,3 +128,5 @@ export default App;
 // Muuta favicon + Nimi
 // Muuta Font
 // Panna firebase üles
+
+
