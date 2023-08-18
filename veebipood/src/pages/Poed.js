@@ -79,6 +79,7 @@ function Poed() {
     uPoed(vastus);
   };
 
+
   // KOKKUARVUTUS - liidame kõik poodide tähtede arvud
   const arvutaKokku = () => {
     // let muutuja väärtus saab muutuda pidevalt

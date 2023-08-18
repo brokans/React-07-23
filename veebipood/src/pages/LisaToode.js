@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import tootedFailist from "../data/tooted.json";
 import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function LisaToode() {
   const [sonum, uuendaSonum] = useState("Lisa toode!");

@@ -102,7 +102,7 @@ function App() {
 
       <Routes>
         <Route path="" element={<Avaleht/>} />;
-        <Route path="ostukorv" element={<Ostukorv/>} />;
+        <Route path="/ostukorv" element={<Ostukorv/>} />;
         <Route path="/lisa-toode" element={<LisaToode/>} />;
         <Route path="/seaded" element={<Seaded/>} />;
         <Route path="*" element={<MitteLeitud/>} />;

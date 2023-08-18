@@ -5,7 +5,9 @@ import tootedFailist from "../data/tooted.json";
 import { Link } from "react-router-dom";
 // Kellaaeg 1:42 videol
 function Tooted() {
-  const [tooted, uTooted] = useState(tootedFailist.filter(toode => toode.aktiivne === true));
+  const [tooted, uTooted] = useState(
+    tootedFailist.filter((toode) => toode.aktiivne === true)
+  );
 
   const lisaOstukorvi = (klikitudToode) => {
     ostukorviFailist.push(klikitudToode);
@@ -33,25 +35,23 @@ function Tooted() {
     uTooted(tooted.slice());
   };
 
-
-
   const filtreeriAlgabA = () => {
-    const vastus = tootedFailist.filter(toode => toode.nimi.startsWith("A"));
+    const vastus = tootedFailist.filter((toode) => toode.nimi.startsWith("A"));
     uTooted(vastus);
-  }
+  };
 
   const filtreeriAlgabB = () => {
-    const vastus = tootedFailist.filter(toode => toode.nimi.startsWith("B"));
+    const vastus = tootedFailist.filter((toode) => toode.nimi.startsWith("B"));
     uTooted(vastus);
-  }
+  };
   const filtreeriAlgabN = () => {
-    const vastus = tootedFailist.filter(toode => toode.nimi.startsWith("F"));
+    const vastus = tootedFailist.filter((toode) => toode.nimi.startsWith("F"));
     uTooted(vastus);
-  }
+  };
   const filtreeriAlgabT = () => {
-    const vastus = tootedFailist.filter(toode => toode.nimi.startsWith("K"));
+    const vastus = tootedFailist.filter((toode) => toode.nimi.startsWith("K"));
     uTooted(vastus);
-  }
+  };
 
   return (
     <div>

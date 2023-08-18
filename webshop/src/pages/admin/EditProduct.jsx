@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import productsFromFile from "../../data/products.json"
 import { useNavigate, useParams } from 'react-router-dom';
+import { ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function EditProduct() {
   const {productId} = useParams();
@@ -47,6 +49,7 @@ function EditProduct() {
       <label htmlFor="">Active</label><br />
       <input ref={activeRef} defaultChecked={found.active} type="checkbox" /><br />
       <button onClick={edit}>Edit</button>
+      <ToastContainer position="top-right" autoClose={2000} theme="dark" />
     </div>
   )
 }

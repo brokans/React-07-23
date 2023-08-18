@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useTranslation } from 'react-i18next';
-import { changeLanguage } from "i18next";
+// import { changeLanguage } from "i18next";
 
 import "./App.css";
 import AdminHome from "./pages/admin/AdminHome";
@@ -92,31 +92,29 @@ function App() {
       </Link>
       <Link to="contact">
       </Link>
-      <Link to="product">
-      </Link>
       <Link to="shops">
       </Link>
 
       <Routes>
         {/* ADMIN */}
-        <Route path="admin" element={<AdminHome />} />
-        <Route path="admin/add-product" element={<AddProduct />} />
-        <Route path="admin/edit-product/:productId" element={<EditProduct />} />
+        <Route path="/admin" element={<AdminHome />} />
+        <Route path="/admin/add-product" element={<AddProduct />} />
+        <Route path="/admin/edit-product/:productId" element={<EditProduct />} />
         <Route
-          path="admin/maintain-categories"
+          path="/admin/maintain-categories"
           element={<MaintainCategories />}
         />
-        <Route path="admin/maintain-shops" element={<MaintainShops />} />
-        <Route path="admin/maintain-products" element={<MaintainProducts />} />
+        <Route path="/admin/maintain-shops" element={<MaintainShops />} />
+        <Route path="/admin/maintain-products" element={<MaintainProducts />} />
         {/* GLOBAL */}
         <Route path="" element={<HomePage />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="contact" element={<ContactUs />} />
-        <Route path="product" element={<SingleProduct />} />
-        <Route path="shops" element={<Shops />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/product/:id" element={<SingleProduct />} />
+        <Route path="/shops" element={<Shops />} />
         {/* SIGN UP */}
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
@@ -129,4 +127,19 @@ export default App;
 // Muuta Font
 // Panna firebase üles
 
-
+// 17.08
+// E, K
+// 1. HomePages sorteerimine ja filtreerimine +
+// 2. MaintainProductsis kustutamine (refreshiga tulevad tagasi) +
+// 3. AddProduct lisamine +
+// 4. SingleProduct ühe toote vaatamine + 
+// 5a. HomePages võimaldada ostukorvi lisada + 
+// 5b. Cart.js lehel võimaldada ostukorvi sisu vaadata + 
+//      ostukorvist kustutada, ostukorvi tühjendada, ostukorvi kogusummat vaadata
+//      dünaamiline väljakuvamine (tühjendamine ja kogusumma peita kui tühi)
+//              kui tühi, siis öelda, et on tühi
+// 6. Mõnele kodusele projektile (nt uudised) peale ka tõlge ja Bootstrap
+//          praegu on lihtsasti meelde tuletatav
+//          2-3 kuu pärast on vaja uuesti teha
+//          1h-2h et see peale panna kui on juba korra oma peaga läbi tehtud
+// 7. React-toastify peale: kustutades, uut toodet lisades, ostukorvi lisades

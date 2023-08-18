@@ -46,6 +46,7 @@ function Ostukorv() {
             <img className="pilt" src={toode.pilt} alt="" />
             <button onClick={() => lisa(toode)}>+</button>{" "}
             <button onClick={() => kustuta(jrknr)}>x</button>{" "}
+            <br />
           </div>
         ))}
       </div>
@@ -56,6 +57,7 @@ function Ostukorv() {
           <Link to="/tooted">E-Poodi</Link>
         </>
       )}
+      <br /> <br />
       {ostukorv.length > 0 && <div>Kogusumma: {ostukorviSumma()}€</div>}
     </div>
   );

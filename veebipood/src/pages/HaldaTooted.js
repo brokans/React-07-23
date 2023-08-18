@@ -7,7 +7,7 @@ function HaldaTooted() {
 
   const kustuta = (jrknr) => {
     tooted.splice(jrknr, 1); // sellest alates mitu tk
-    uTooted(tootedFailist.slice());
+    uTooted(tooted.slice());
   };
   return (
     <div>
@@ -24,7 +24,9 @@ function HaldaTooted() {
           {/* Vajutades nupul muuda suunab muudaToode lehele */}
           <Link to={"/muudaTooted/" + jrknr}>
             <button>Muuda</button>
+          
           </Link>
+          
         </div>
       ))}
     </div>
