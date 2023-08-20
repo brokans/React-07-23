@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import productsFromFile from "../../data/products.json"
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 function MaintainProducts() {
   const [products, setProducts] = useState(productsFromFile);
+
+  const { t } = useTranslation();
+
 
   function deleteProduct(index) {
     products.splice(index, 1);
@@ -21,8 +26,8 @@ function MaintainProducts() {
           <div>{product.price}</div>
           <div>{product.category}</div>
           <div>{product.description}</div>
-          <button onClick={() => deleteProduct(index)}>Delete</button>
-          <Button as={Link} to={"/admin/edit-product/" + product.id}>Edit</Button>
+          <button onClick={() => deleteProduct(index)}>{t("delete")}</button>
+          <Button as={Link} to={"/admin/edit-product/" + product.id}>{t("edit")}</Button>
           <br /> <br />
         </div>
       ))}

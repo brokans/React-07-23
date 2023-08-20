@@ -16,6 +16,36 @@ const resources = {
       "maintain-shops": "Maintain Shops",
       "add-product": "Add Product ",
       "maintain-products": "Maintain Product",
+      // Homepage
+      "total-products": "Total Products:",
+      "pcs": "pcs:",
+      "sort-a-z": "Sort A-Z",
+      "sort-z-a": "Sort Z-A",
+      "sort-price-asc": "Sort Price Asc",
+      "sort-price-desc": "Sort Proce Desc",
+      "memory-bank": "Memory Bank",
+      "usb-drive": "USB Drive",
+      "tent": "Tent",
+      "camping": "Camping",
+      "addTo-cart": "Add To Cart",
+      "details": "Details",
+      // Cart
+      "cart-empty": "Cart is Empty",
+      "shop": "Shop",
+      "products-in-cart": "Products in Cart",
+      "product-in-cart": "Product in Cart",
+      "empty-cart": "Empty Cart",
+      "subtotal": "Subtotal",
+      // Maintain Products
+      "delete": "Delete",
+      "edit": "Edit",
+      // Edit Product
+      "name": "Name:",
+      "price": "Price:",
+      "image": "Image:",
+      "category": "Category:",
+      "description": "Description:",
+      "active": "Active:",
       
     }
   },
@@ -30,6 +60,36 @@ const resources = {
       "maintain-shops": "Halda Poode",
       "add-product": "Lisa Toode",
       "maintain-products": "Halda Tooteid",
+      // Avaleht
+      "total-products": "Toodete Koguarv:",
+      "pcs": "tk:",
+      "sort-a-z": "Sorteeri A-Z",
+      "sort-z-a": "Sorteeri Z-A",
+      "sort-price-asc": "Sorteeri Hind Kasvavalt",
+      "sort-price-desc": "Sorteeri Hind Kahanevalt",
+      "memory-bank": "Mälupank",
+      "usb-drive": "USB Mälupulk",
+      "tent": "Telk",
+      "camping": "Matkamine",
+      "addTo-cart": "Lisa Ostukorvi",
+      "details": "Üksikasjad",
+      //Ostukorv
+      "cart-empty": "Ostukorv on Tühi",
+      "shop": "Poodi",
+      "products-in-cart": "Toodet Ostukorvis",
+      "product-in-cart": "Toode Ostukorvis",
+      "empty-cart": "Tühjenda Ostukorv",
+      "subtotal": "Summa",
+      // Halda Tooteid
+      "delete": "Kustuta",
+      "edit": "Muuda",
+      // Halda Toodet
+      "name": "Nimi:",
+      "price": "Hind:",
+      "image": "Pilt:",
+      "category": "Kategooria:",
+      "description": "Kirjeldus:",
+      "active": "Aktiivne:",
     }
   }
 };

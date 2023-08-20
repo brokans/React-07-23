@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import productsFromFile from "../../data/products.json";
 import cartFromFile from "../../data/cart.json";
+import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { Button } from "react-bootstrap";
 
 function HomePage() {
+
+  const { t } = useTranslation();
   // const { t } = useTranslation();
   const [products, setProducts] = useState(productsFromFile);
 
@@ -66,16 +69,16 @@ function HomePage() {
   
   return (
     <div>
-      <div>Total products: {products.length} pcs</div>
-      <button onClick={sortAZ}>Sort A-Z</button>
-      <button onClick={sortZA}>Sort Z-A</button>
-      <button onClick={sortPriceAsc}>Sort price asc</button>
-      <button onClick={sortPriceDesc}>Sort price desc</button>
+      <div>{t("total-products")} {products.length} {t("pcs")}</div>
+      <button onClick={sortAZ}>{t("sort-a-z")}</button>
+      <button onClick={sortZA}>{t("sort-z-a")}</button>
+      <button onClick={sortPriceAsc}>{t("sort-price-asc")}</button>
+      <button onClick={sortPriceDesc}>{t("sort-price-desc")}</button>
       <br />
-      <button onClick={filterMemory}>Memory Bank</button>
-      <button onClick={filterUsb}>Usb Drive</button>
-      <button onClick={filterTent}>Tent</button>
-      <button onClick={filterCamping}>Camping</button>
+      <button onClick={filterMemory}>{t("memory-bank")}</button>
+      <button onClick={filterUsb}>{t("usb-drive")}</button>
+      <button onClick={filterTent}>{t("tent")}</button>
+      <button onClick={filterCamping}>{t("camping")}</button>
       <br /> <br />
       {products.map((product) => (
         <div key={product.id}>
@@ -87,9 +90,9 @@ function HomePage() {
           <br />
           <div>{product.price}€</div>
           <br />
-          <button onClick={() => addToCart(product)}>Add To Cart</button>{" "}
+          <button onClick={() => addToCart(product)}> {t("addTo-cart")}</button>{" "}
           <Button as={Link} to={"/product/" + product.id}>
-            Details
+            {t("details")}
           </Button>
           <br />
           <br />
