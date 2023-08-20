@@ -36,6 +36,7 @@ function App() {
     localStorage.setItem("language", "en");
   }
 
+
   return (
     <div className="App">
       <Navbar collapseOnSelect expand="lg" className="bg-body-secondary">
@@ -58,7 +59,7 @@ function App() {
             </Nav>
             <Nav>
               <button onClick={changeLangEN}>english</button>
-              <button onClick={changeLangEE}>estonian</button>
+              <button onClick={changeLangEE}>eesti keel</button>
               <Nav.Link as={Link} to="login">
                 {t("login")}
               </Nav.Link>

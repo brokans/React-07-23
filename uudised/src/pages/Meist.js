@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useTranslation } from 'react-i18next';
 
 
 function Meist() {
@@ -13,6 +14,9 @@ function Meist() {
     {nimi: "Kaja Kajakas", ala: "Meedia organisaator", tel: "3726782390"},
     {nimi: "Ott Karu", ala: "Helidisainer", tel: "37287366023"},
   ]
+
+  const { t } = useTranslation();
+  
 
   
 // Ei toiminud millegi pärast
@@ -30,7 +34,7 @@ function Meist() {
           <div className={tootaja.nimi === valitud ?'valitud' : undefined}>
             <div>{tootaja.nimi}</div>
             <div>{tootaja.ala}</div>
-            <button onClick={() => [n2itaKontakti(tootaja.tel), uValitud(tootaja.nimi)]}>Võta ühendust</button>
+            <button onClick={() => [n2itaKontakti(tootaja.tel), uValitud(tootaja.nimi)]}>{t("vota-yhendust")}</button>
 
           </div>
           

@@ -85,7 +85,7 @@ function HomePage() {
           <br />
           <div>{product.name}</div>
           <br />
-          <div>{product.price}</div>
+          <div>{product.price}€</div>
           <br />
           <button onClick={() => addToCart(product)}>Add To Cart</button>{" "}
           <Button as={Link} to={"/product/" + product.id}>
@@ -96,6 +96,7 @@ function HomePage() {
         </div>
       ))}
       <ToastContainer position="top-right" autoClose={2000} theme="dark" />
+
     </div>
   );
 }

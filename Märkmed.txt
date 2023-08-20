@@ -30,4 +30,5 @@ npm install react-router-dom
 // firebase deploy laeb failid uuesti üles
 // Kui muudatusi broweseris näha pole siis Hard Reload, CTRL+SHIFT+R
 
-
+babel-preset-react-app error fix:
+npm install --save-dev @babel/plugin-proposal-private-property-in-object
