@@ -2,10 +2,16 @@ import React, { useRef, useState } from "react";
 import productsFromFile from "../../data/products.json";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
+
 
 
 function AddProduct() {
-  const [message, uMessage] = useState("Add product");
+  const { t } = useTranslation();
+  const [message, uMessage] = useState("");
+  
+  
+
   // USEREF
   const idRef = useRef();
   const imageRef = useRef();
@@ -42,37 +48,38 @@ function AddProduct() {
 
   return (
     <div>
-      <div>{message}</div>
-        <label>Product ID: </label>
+      {message}
+      <div>{t("add-product-text")}</div>
+        <label>ID: </label>
         <br />
         <input ref={idRef} type="number" />
         <br />
-        <label>Product image: </label>
+        <label>{t("image")}</label>
         <br />
         <input ref={imageRef} type="text" />
         <br />
-        <label>Product name: </label>
+        <label>{t("name")}</label>
         <br />
         <input ref={nameRef} type="text" />
         <br />
-        <label>Product price: </label>
+        <label>{t("price")}</label>
         <br />
         <input ref={priceRef} type="number" />
         <br />
-        <label>Product description: </label>
+        <label>{t("description")}</label>
         <br />
         <input ref={descriptionRef} type="text" />
         <br />
-        <label>Product category: </label>
+        <label>{t("category")}</label>
         <br />
         <input ref={categoryRef} type="text" />
         <br />
-        <label>Product active: </label>
+        <label>{t("active")}</label>
         <br />
         {/* checkbox kui ei taha kuvada */}
         <input ref={activeRef} type="checkbox" />
         <br />
-        <button onClick={add}>Add</button> <br />
+        <button onClick={add}>{t("add")}</button> <br />
         <ToastContainer position="top-right" autoClose={2000} theme="dark" />
     </div>
   );

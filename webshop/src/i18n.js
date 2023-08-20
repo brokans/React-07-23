@@ -46,6 +46,9 @@ const resources = {
       "category": "Category:",
       "description": "Description:",
       "active": "Active:",
+      // Add Product
+      "add": "Add:",
+      "add-product-text": "Add Product:",
       
     }
   },
@@ -90,6 +93,9 @@ const resources = {
       "category": "Kategooria:",
       "description": "Kirjeldus:",
       "active": "Aktiivne:",
+      // Lisa Toode
+      "add": "Lisa:",
+      "add-product-text": "Lisa Toode:",
     }
   }
 };
