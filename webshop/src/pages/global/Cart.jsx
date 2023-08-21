@@ -17,16 +17,14 @@ function Cart() {
 
   }
 
-  const addProduct = (clickedProduct) => {
+  function addProduct(clickedProduct) {
     cart.push(clickedProduct); // iga nupuvajutus peab olema erinev (dünaamiline)
     uCart(cart.slice());
-    toast.success("Product succesfully added!");
   };
 
   function removeProduct(index) {
     cart.splice(index, 1);
     uCart(cart.slice());
-    toast.warning("Product deleted from cart!");
   }
 
   function cartSum() {

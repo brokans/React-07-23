@@ -3,14 +3,15 @@ import { useParams } from "react-router-dom";
 import productsFromFile from "../../data/products.json";
 
 function SingleProduct() {
-  const {} = useParams;
+  const {productId} = useParams();
+  const found = productsFromFile.find(product => product.id === Number(productId));
 
   // Millegi pärast ei leia toodet üles
 
 
-  const found = productsFromFile.find(product => {
-    return product.id;
-  });
+  // const found = productsFromFile.find(product => {
+  //   return product.id;
+  // });
 
   // function found() {
   //   productsFromFile.find(product => {

@@ -58,8 +58,12 @@ function App() {
               </Nav.Link>
             </Nav>
             <Nav>
-              <button onClick={changeLangEN}>english</button>
-              <button onClick={changeLangEE}>eesti keel</button>
+              {/* <button onClick={changeLangEN}></button> 
+              <button onClick={changeLangEE}>eesti keel</button> */}
+              <Nav.Link>
+                <img className="lang" onClick={changeLangEN} src="./united-kingdom.png" alt="" />
+                <img className="lang" onClick={changeLangEE} src="./estonian.png" alt="" />
+              </Nav.Link>
               <Nav.Link as={Link} to="login">
                 {t("login")}
               </Nav.Link>
@@ -111,7 +115,7 @@ function App() {
         <Route path="" element={<HomePage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/product/:id" element={<SingleProduct />} />
+        <Route path="/product/:productId" element={<SingleProduct />} />
         <Route path="/shops" element={<Shops />} />
         {/* SIGN UP */}
         <Route path="/login" element={<Login />} />
@@ -144,3 +148,7 @@ export default App;
 //          2-3 kuu pärast on vaja uuesti teha
 //          1h-2h et see peale panna kui on juba korra oma peaga läbi tehtud
 // 7. React-toastify peale: kustutades, uut toodet lisades, ostukorvi lisades
+
+// 21.08 
+// 3-4 keel
+// Addproducts ID unikaalsuse kontroll

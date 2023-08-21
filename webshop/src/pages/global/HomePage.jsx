@@ -19,6 +19,10 @@ function HomePage() {
     toast.success("Product added to cart!");
 };
 
+function reset() {
+  setProducts(products.slice());
+} 
+
   // SORTEERIMINE
   const sortAZ = () => {
     products.sort((a, b) => a.name.localeCompare(b.name, "et"));
@@ -70,6 +74,8 @@ function HomePage() {
   return (
     <div>
       <div>{t("total-products")} {products.length} {t("pcs")}</div>
+      <button onClick={reset}>{t("reset")}</button>
+      <br />
       <button onClick={sortAZ}>{t("sort-a-z")}</button>
       <button onClick={sortZA}>{t("sort-z-a")}</button>
       <button onClick={sortPriceAsc}>{t("sort-price-asc")}</button>

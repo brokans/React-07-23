@@ -24,15 +24,22 @@ function AddProduct() {
 
 
   const add = () => {
-    if (nameRef.current.value === "") {
-      uMessage("Please enter product name!");
-      toast.error("Please enter product name!!");
-    } else if (nameRef.current.value.includes("!")) {
+    if (idRef.current.value === "") {
+      // toasti tõlkimiseks tavalised sulud
+      toast.error("Please enter product id!!");
+      return;
+    } 
+    
+    else if (idRef.current.value.includes("!")) {
       uMessage("Can't add product with exclamation mark!");
       toast.warning("Can't add product with exclamation mark!");
+    } else if (idRef.current.value === "") {
+        toast.error("Please enter product id!!");
+    } else if (nameRef.current.value[0].toLowerCase() === nameRef.current.value[0]) {
+      toast.error("Please enter product name!!");
     } else {
-      uMessage("Product successfully added: " + nameRef.current.value);
-      toast.success("Product successfully added! " + nameRef.current.value);
+      uMessage("Product successfully added: " + idRef.current.value);
+      toast.success("Product successfully added! " + idRef.current.value);
       productsFromFile.push({
         id: Number(idRef.current.value),
         image: imageRef.current.value,
