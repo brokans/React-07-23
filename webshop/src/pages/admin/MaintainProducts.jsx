@@ -15,7 +15,7 @@ function MaintainProducts() {
   function deleteProduct(index) {
     productsFromFile.splice(index, 1);
     setProducts(productsFromFile.slice());
-    toast.warning("Product Deleted!");
+    toast.success((t("product-deleted")));
   }
 
   function searchFromProducts() {
@@ -28,7 +28,7 @@ function MaintainProducts() {
   return (
     <div>
       <input onChange={searchFromProducts} ref={searchedRef} type="text" />
-      <div> Found {products.length} products.</div>
+      <div> {products.length} {t("products-found")}</div>
       {products.map((product, index) => (
         <div>
           <img src={product.image} alt="" />

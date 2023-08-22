@@ -25,12 +25,12 @@ function SingleProduct() {
   return (
     <div>
       {/* <div>Toote järjekorranumber: {nimi}</div> */}
+      <img src={found.image} alt="" />
       <div>ID: {found.id}</div>
       <div>Name: {found.name}</div>
       <div>Price: {found.price}</div>
       <div>Category: {found.category}</div>
       <div>Description: {found.description}</div>
-      <img src={found.image} alt="" />
     </div>
   );
 }

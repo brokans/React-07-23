@@ -16,7 +16,7 @@ function HomePage() {
   // ADD PRODUCT
   const addToCart = (clickedProduct) => {
     cartFromFile.push(clickedProduct);
-    toast.success("Product added to cart!");
+    toast.success((t("product-added")));
 };
 
 function reset() {

@@ -35,6 +35,14 @@ function App() {
     i18n.changeLanguage("en");
     localStorage.setItem("language", "en");
   }
+  function changeLangFI() {
+    i18n.changeLanguage("fi");
+    localStorage.setItem("language", "fi");
+  }
+  function changeLangLV() {
+    i18n.changeLanguage("lv");
+    localStorage.setItem("language", "lv");
+  }
 
 
   return (
@@ -58,11 +66,14 @@ function App() {
               </Nav.Link>
             </Nav>
             <Nav>
-              {/* <button onClick={changeLangEN}></button> 
+              {/*  
               <button onClick={changeLangEE}>eesti keel</button> */}
               <Nav.Link>
-                <img className="lang" onClick={changeLangEN} src="./united-kingdom.png" alt="" />
-                <img className="lang" onClick={changeLangEE} src="./estonian.png" alt="" />
+                <button onClick={changeLangEN}>Eng</button>
+                <button onClick={changeLangEE}>Est</button>
+                <button onClick={changeLangFI}>Fin</button>
+                <button onClick={changeLangLV}>Lat</button>
+                <img src="../public/estonian.png" alt="" />
               </Nav.Link>
               <Nav.Link as={Link} to="login">
                 {t("login")}

@@ -36,5 +36,17 @@
     "active": "Aktiivne:",
     "add": "Lisa:",
     "add-product-text": "Lisa Toode:",
-    "reset": "Lähtesta"
+    "reset": "Lähtesta",
+    "products-found": "Toodet leitud.",
+    "not-unique": "ID ei ole unikaalne.",
+    "enter-product-id": "Palun sisestage toote ID!",
+    "no-exclamation": "Toodet ei saa lisada hüüumärgiga!",
+    "enter-product-name": "Palun sisestage toote nimi!",
+    "enter-product-upper": "Palun sisestage toote nimi suure algustähega!",
+    "product-entered": "Toode edukalt lisatud! ",
+    "product-deleted": "Toode edukalt kustutatud! ",
+    "product-added": "Toode edukalt ostukorvi lisatud! "
+
+
+
   }
