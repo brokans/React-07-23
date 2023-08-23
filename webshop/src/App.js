@@ -17,7 +17,7 @@ import HomePage from "./pages/global/HomePage";
 import Cart from "./pages/global/Cart";
 import Shops from "./pages/global/Shops";
 import SingleProduct from "./pages/global/SingleProduct";
-import ContactUs from "./pages/global/ContactUs";
+import {ContactUs} from "./pages/global/ContactUs";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import NotFound from "./pages/global/NotFound";

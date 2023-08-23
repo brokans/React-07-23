@@ -72,6 +72,15 @@ function AddProduct() {
     } else {
       uIdUnique(false);
     }
+
+    // imageRef.current.value === "";
+    // idRef.current.value === "";
+    // nameRef.current.value === "";
+    // priceRef.current.value === "";
+    // descriptionRef.current.value === "";
+    // categoryRef.current.value === "";
+    // activeRef.current.value === "";
+    
   }
 
   return (

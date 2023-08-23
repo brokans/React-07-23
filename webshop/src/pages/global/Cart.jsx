@@ -1,30 +1,35 @@
 import React, { useState } from "react";
-import cartFromFile from "../../data/cart.json";
+// import cartFromFile from "../../data/cart.json";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useTranslation } from 'react-i18next';
 
 
 function Cart() {
-  const [cart, uCart] = useState(cartFromFile);
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart") || "[]"));
 
   const { t } = useTranslation();
 
   function emptyCart() {
     cart.splice(0);
-    uCart(cart.slice());
+    setCart(cart.slice());
     toast.error("Cart emptied!");
+    localStorage.setItem("cart", JSON.stringify(cart));
 
   }
 
   function addProduct(clickedProduct) {
     cart.push(clickedProduct); // iga nupuvajutus peab olema erinev (dünaamiline)
-    uCart(cart.slice());
+    setCart(cart.slice());
+    localStorage.setItem("cart", JSON.stringify(cart));
+
   };
 
   function removeProduct(index) {
     cart.splice(index, 1);
-    uCart(cart.slice());
+    setCart(cart.slice());
+    localStorage.setItem("cart", JSON.stringify(cart));
+
   }
 
   function cartSum() {
@@ -42,7 +47,7 @@ function Cart() {
         {cart.length > 0 && <button onClick={emptyCart}>{t("empty-cart")}</button>}
         <br /> <br />
         {cart.map((product, index) => (
-          <div key={product.id}>
+          <div key={product.index}>
             {product.id}
             <img src={product.image} alt="" />
             <br />

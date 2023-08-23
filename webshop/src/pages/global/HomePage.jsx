@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import productsFromFile from "../../data/products.json";
-import cartFromFile from "../../data/cart.json";
+// import cartFromFile from "../../data/cart.json";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -15,8 +15,18 @@ function HomePage() {
 
   // ADD PRODUCT
   const addToCart = (clickedProduct) => {
-    cartFromFile.push(clickedProduct);
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cart.push(clickedProduct);
+    // cartFromFile.push(clickedProduct);
+    // Salvestab ostukorvi lokaalselt
+    localStorage.setItem("cart", JSON.stringify(cart));
     toast.success((t("product-added")));
+
+    // 1. Võtame localStorage'st ostukorvi varasema seisu
+    // 2. Võtame LocalStorage'st saadud väärtuselt jutumärgi maha: JSON.parse()
+    // 3. Lisame saadud väärtusele juurde ühe toote: .push()
+    // 4. Paneme uuenenud väärtustele jutumärgid peale tagasi JSON.stringify()
+    // 5. Paneme localStorage'sse tagasi: LocalStorage.setItem()
 };
 
 function reset() {

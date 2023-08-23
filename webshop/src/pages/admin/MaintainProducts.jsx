@@ -15,12 +15,19 @@ function MaintainProducts() {
   function deleteProduct(index) {
     productsFromFile.splice(index, 1);
     setProducts(productsFromFile.slice());
-    toast.success((t("product-deleted")));
+    toast.success(t("product-deleted"));
   }
 
   function searchFromProducts() {
-    const result = productsFromFile.filter((product) =>
-      product.name.toLowerCase().includes(searchedRef.current.value.toLowerCase())
+    const result = productsFromFile.filter(
+      (product) =>
+        product.name
+          .toLowerCase()
+          .includes(searchedRef.current.value.toLowerCase()) ||
+        product.description
+          .toLowerCase()
+          .includes(searchedRef.current.value.toLowerCase()) ||
+        product.id.toString().includes(searchedRef.current.value)
     );
     setProducts(result);
   }
@@ -28,9 +35,15 @@ function MaintainProducts() {
   return (
     <div>
       <input onChange={searchFromProducts} ref={searchedRef} type="text" />
-      <div> {products.length} {t("products-found")}</div>
+      <div>
+        {" "}
+        {products.length} {t("products-found")}
+      </div>
       {products.map((product, index) => (
-        <div>
+        <div
+          key={product.id}
+          className={product.active ? "active" : "inactive"}
+        >
           <img src={product.image} alt="" />
           <div>{product.id}</div>
           <div>{product.name}</div>
