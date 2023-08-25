@@ -9,9 +9,11 @@ const resources = {
         "meist": "About Us",
         "kontaktid": "Contacts",
         "uudised": "News",
-        "vota-yhendust": "Contact Me"
-
-
+        "vota-yhendust": "Contact Me",
+        "halda": "Manage News",
+        "lisa": "Add News",
+        "total-news": "News in total: ",
+        "yks-uudis": "News View"
         
       }
     },
@@ -21,7 +23,11 @@ const resources = {
         "meist": "Meist",
         "kontaktid": "Kontaktid",
         "uudised": "Uudised",
-        "vota-yhendust": "Võta Ühendust"
+        "vota-yhendust": "Võta Ühendust",
+        "halda": "Halda Uudiseid",
+        "lisa": "Lisa Uudiseid",
+        "total-news": "Uudiseid kokku: ",
+        "yks-uudis": "Üks uudis"
       }
     }
   };

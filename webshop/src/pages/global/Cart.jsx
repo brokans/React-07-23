@@ -13,7 +13,7 @@ function Cart() {
   function emptyCart() {
     cart.splice(0);
     setCart(cart.slice());
-    toast.error("Cart emptied!");
+    toast.error(t("cart-empty"));
     localStorage.setItem("cart", JSON.stringify(cart));
 
   }

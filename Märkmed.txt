@@ -32,7 +32,7 @@ npm install react-router-dom
 
 // eMailJS
 $ npm install @emailjs/browser --save
-React näidis kopeerida
+React näidis kopeerid
 
 
 // MAP React Leaflet
