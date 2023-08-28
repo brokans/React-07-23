@@ -56,8 +56,8 @@ function Cart() {
     return sum.toFixed(2);
   }
 
-  if (parcelMachines.length === 0){
-    return <div>Loading...</div>
+  if (parcelMachines.length === 0) {
+    return <div>Loading...</div>;
   }
 
   function removeItem(index) {
@@ -129,11 +129,13 @@ function Cart() {
               </div>
             )}
             <select name="" id="">
-              {parcelMachines.filter(pm => pm.A0_NAME === "EE").map(pm => (
-                <option key={pm.NAME}>{pm.NAME}</option>
-              ))}
-            </select>          
-            </div>
+              {parcelMachines
+                .filter((pm) => pm.A0_NAME === "EE")
+                .map((pm) => (
+                  <option key={pm.NAME}>{pm.NAME}</option>
+                ))}
+            </select>
+          </div>
         </div>
       )}
       {cart.length === 0 && (
