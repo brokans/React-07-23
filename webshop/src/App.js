@@ -17,7 +17,7 @@ import HomePage from "./pages/global/HomePage";
 import Cart from "./pages/global/Cart";
 import Shops from "./pages/global/Shops";
 import SingleProduct from "./pages/global/SingleProduct";
-import ContactUs from "./pages/global/ContactUs";
+import {ContactUs} from "./pages/global/ContactUs";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import NotFound from "./pages/global/NotFound";
@@ -35,6 +35,14 @@ function App() {
     i18n.changeLanguage("en");
     localStorage.setItem("language", "en");
   }
+  function changeLangFI() {
+    i18n.changeLanguage("fi");
+    localStorage.setItem("language", "fi");
+  }
+  function changeLangLV() {
+    i18n.changeLanguage("lv");
+    localStorage.setItem("language", "lv");
+  }
 
 
   return (
@@ -48,21 +56,24 @@ function App() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="admin">
-                {t("admin")}
+                {t("nav.admin")}
               </Nav.Link>
               <Nav.Link as={Link} to="contact">
-                {t("contact")}
+                {t("nav.contact")}
               </Nav.Link>
               <Nav.Link as={Link} to="shops">
-                {t("shops")}
+                {t("nav.shops")}
               </Nav.Link>
             </Nav>
             <Nav>
-              {/* <button onClick={changeLangEN}></button> 
+              {/*  
               <button onClick={changeLangEE}>eesti keel</button> */}
               <Nav.Link>
-                <img className="lang" onClick={changeLangEN} src="./united-kingdom.png" alt="" />
-                <img className="lang" onClick={changeLangEE} src="./estonian.png" alt="" />
+                <button onClick={changeLangEN}>Eng</button>
+                <button onClick={changeLangEE}>Est</button>
+                <button onClick={changeLangFI}>Fin</button>
+                <button onClick={changeLangLV}>Lat</button>
+                <img src="../public/estonian.png" alt="" />
               </Nav.Link>
               <Nav.Link as={Link} to="login">
                 {t("login")}

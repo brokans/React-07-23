@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import productsFromFile from "../../data/products.json";
-import cartFromFile from "../../data/cart.json";
+// import cartFromFile from "../../data/cart.json";
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -10,13 +10,31 @@ import { Button } from "react-bootstrap";
 function HomePage() {
 
   const { t } = useTranslation();
-  // const { t } = useTranslation();
   const [products, setProducts] = useState(productsFromFile);
 
   // ADD PRODUCT
   const addToCart = (clickedProduct) => {
-    cartFromFile.push(clickedProduct);
-    toast.success("Product added to cart!");
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    // kas on ostukorvis
+    const index = cart.findIndex(cartProduct => cartProduct.product.id === clickedProduct.id);
+    if (index >= 0) {
+      // kui on ostukorvis siis quantity pluss üks
+      cart[index].quantity ++; 
+    } else {
+      // lisab ühe toote, hiljem lisab samale juurde, ei teki eraldi samasugust toodet
+      cart.push({"quantity": 1, "product": clickedProduct});
+    }
+    
+    // cartFromFile.push(clickedProduct);
+    // Salvestab ostukorvi lokaalselt
+    localStorage.setItem("cart", JSON.stringify(cart));
+    toast.success((t("product-added")));
+
+    // 1. Võtame localStorage'st ostukorvi varasema seisu
+    // 2. Võtame LocalStorage'st saadud väärtuselt jutumärgi maha: JSON.parse()
+    // 3. Lisame saadud väärtusele juurde ühe toote: .push()
+    // 4. Paneme uuenenud väärtustele jutumärgid peale tagasi JSON.stringify()
+    // 5. Paneme localStorage'sse tagasi: LocalStorage.setItem()
 };
 
 function reset() {
@@ -94,7 +112,7 @@ function reset() {
           <br />
           <div>{product.name}</div>
           <br />
-          <div>{product.price}€</div>
+          <div>{product.price.toFixed(2)}€</div>
           <br />
           <button onClick={() => addToCart(product)}> {t("addTo-cart")}</button>{" "}
           <Button as={Link} to={"/product/" + product.id}>
@@ -104,7 +122,7 @@ function reset() {
           <br />
         </div>
       ))}
-      <ToastContainer position="top-right" autoClose={2000} theme="dark" />
+      <ToastContainer position="bottom-left" autoClose={2000} theme="dark" />
 
     </div>
   );
