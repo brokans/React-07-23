@@ -14,6 +14,8 @@ import HaldaUudiseid from "./pages/HaldaUudiseid";
 import LisaUudis from "./pages/LisaUudis";
 import YksUudis from "./pages/YksUudis";
 import MuudaUudis from "./pages/MuudaUudis";
+import KasutajaPostitused from "./pages/KasutajaPostitused";
+import YksPostitus from "./pages/YksPostitus";
 // FIREBASE GOOGLE SIDUMINE TERMINALIS
 // npm install firebase, et googlega siduda
 // npm install -g firebase-tools
@@ -87,6 +89,8 @@ function App() {
       <Link to="kontaktid"></Link>
       <Link to="yks-uudis"></Link>
       <Link to="muuda-uudis"></Link>
+      <Link to="kasutaja-postituse"></Link>
+      <Link to="yks-postitus"></Link>
 
       <Routes>
         <Route path="/avaleht" element={< Avaleht />} />
@@ -97,6 +101,8 @@ function App() {
         <Route path="/lisa" element={< LisaUudis/>} />
         <Route path="/yks-uudis/:index" element={< YksUudis />} />
         <Route path="/muuda-uudis/:index" element={< MuudaUudis />} />
+        <Route path="/kasutaja-postitused/:kasutajaId" element={< KasutajaPostitused />} />
+        <Route path="/yks-postitus/:postituseId" element={< YksPostitus />} />
       </Routes>
     </div>
   );

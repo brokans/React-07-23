@@ -129,11 +129,7 @@ function Cart() {
               </div>
             )}
             <select name="" id="">
-              {parcelMachines
-                .filter((pm) => pm.A0_NAME === "EE")
-                .map((pm) => (
-                  <option key={pm.NAME}>{pm.NAME}</option>
-                ))}
+              {parcelMachines.filter((pm) => pm.A0_NAME === "EE").map((pm) => (<option key={pm.NAME}>{pm.NAME}</option>))}
             </select>
           </div>
         </div>
