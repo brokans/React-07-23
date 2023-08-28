@@ -56,13 +56,13 @@ function App() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="admin">
-                {t("admin")}
+                {t("nav.admin")}
               </Nav.Link>
               <Nav.Link as={Link} to="contact">
-                {t("contact")}
+                {t("nav.contact")}
               </Nav.Link>
               <Nav.Link as={Link} to="shops">
-                {t("shops")}
+                {t("nav.shops")}
               </Nav.Link>
             </Nav>
             <Nav>
