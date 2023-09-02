@@ -34,6 +34,14 @@ import YksikPood from './pages/YksikPood';
 // firebase deploy laeb failid uuesti üles
 // Kui muudatusi broweseris näha pole siis Hard Reload, CTRL+SHIFT+R
 
+// Firebase database
+// Realtime database ->
+// Rules ->
+// read: true
+// write: true
+
+// Kodutöö 31.08
+// Maintain Shops's teha sama mis on tehtud maintain categories
 
 
 

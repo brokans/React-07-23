@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import productsFromFile from "../../data/products.json";
+// import productsFromFile from "../../data/products.json";
+import config from "../../data/config.json"
+
 
 function SingleProduct() {
   const {productId} = useParams();
-  const found = productsFromFile.find(product => product.id === Number(productId));
+  const [products, setProducts] = useState([]);
+  const found = products.find(product => product.id === Number(productId));
+
+  useEffect(() => {
+    fetch(config.products)
+      .then((res) => res.json())
+      .then((json) => setProducts(json || []));
+  }, []);
 
   // Millegi pärast ei leia toodet üles
 

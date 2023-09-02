@@ -1,25 +1,37 @@
-import React, { useState } from "react";
-import productsFromFile from "../../data/products.json";
+import React, { useEffect, useState } from "react";
+// import productsFromFile from "../../data/products.json";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ToastContainer, toast } from "react-toastify";
 import { useRef } from "react";
+import config from "../../data/config.json"
+
 
 function MaintainProducts() {
-  const [products, setProducts] = useState(productsFromFile);
-
+  const [products, setProducts] = useState([]);
   const { t } = useTranslation();
   const searchedRef = useRef();
+  const [dbProducts, setDbProducts] = useState([]);
+
+
+  useEffect(() => {
+    fetch(config.products)
+      .then((res) => res.json())
+      .then((json) => {
+        setProducts(json || []);
+        setDbProducts(json || []);
+      });
+  }, []);
 
   function deleteProduct(index) {
-    productsFromFile.splice(index, 1);
-    setProducts(productsFromFile.slice());
+    dbProducts.splice(index, 1);
+    setProducts(dbProducts.slice());
     toast.success(t("product-deleted"));
   }
 
   function searchFromProducts() {
-    const result = productsFromFile.filter(
+    const result = dbProducts.filter(
       (product) =>
         product.name
           .toLowerCase()

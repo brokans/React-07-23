@@ -1,45 +1,64 @@
 import React, { useState } from "react";
-import productsFromFile from "../../data/products.json";
+// import productsFromFile from "../../data/products.json";
 // import cartFromFile from "../../data/cart.json";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { Button } from "react-bootstrap";
+import { useEffect } from "react";
+import config from "../../data/config.json"
 
 function HomePage() {
-
   const { t } = useTranslation();
-  const [products, setProducts] = useState(productsFromFile);
+  const [products, setProducts] = useState([]);
+  const [dbProducts, setDbProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+
+  useEffect(() => {
+    fetch(config.products)
+      .then((res) => res.json())
+      .then((json) => {
+        setProducts(json || []);
+        setDbProducts(json || []);
+      });
+
+    fetch(config.categories)
+      .then((res) => res.json())
+      .then((json) => setCategories(json || []));
+  }, []);
 
   // ADD PRODUCT
   const addToCart = (clickedProduct) => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     // kas on ostukorvis
-    const index = cart.findIndex(cartProduct => cartProduct.product.id === clickedProduct.id);
+    const index = cart.findIndex(
+      (cartProduct) => cartProduct.product.id === clickedProduct.id
+    );
     if (index >= 0) {
       // kui on ostukorvis siis quantity pluss üks
-      cart[index].quantity ++; 
+      cart[index].quantity++;
     } else {
       // lisab ühe toote, hiljem lisab samale juurde, ei teki eraldi samasugust toodet
-      cart.push({"quantity": 1, "product": clickedProduct});
+      cart.push({ quantity: 1, product: clickedProduct });
     }
-    
+
     // cartFromFile.push(clickedProduct);
     // Salvestab ostukorvi lokaalselt
     localStorage.setItem("cart", JSON.stringify(cart));
-    toast.success((t("product-added")));
+    toast.success(t("product-added"));
 
     // 1. Võtame localStorage'st ostukorvi varasema seisu
     // 2. Võtame LocalStorage'st saadud väärtuselt jutumärgi maha: JSON.parse()
     // 3. Lisame saadud väärtusele juurde ühe toote: .push()
     // 4. Paneme uuenenud väärtustele jutumärgid peale tagasi JSON.stringify()
     // 5. Paneme localStorage'sse tagasi: LocalStorage.setItem()
-};
+  };
 
-function reset() {
-  setProducts(products.slice());
-} 
+  function reset() {
+    setDbProducts(dbProducts.slice());
+  }
 
   // SORTEERIMINE
   const sortAZ = () => {
@@ -63,46 +82,62 @@ function reset() {
   };
 
   // FILTRID
-  const filterMemory = () => {
-    const result = productsFromFile.filter((product) =>
-      product.category.includes("memory bank")
+  // const filterMemory = () => {
+  //   const result = productsFromFile.filter((product) =>
+  //     product.category.includes("memory bank")
+  //   );
+  //   setProducts(result);
+  // };
+
+  // const filterUsb = () => {
+  //   const result = productsFromFile.filter((product) =>
+  //     product.category.includes("usb drive"));
+  //   setProducts(result);
+  // };
+
+  // const filterTent = () => {
+  //   const result = productsFromFile.filter((product) =>
+  //     product.category.includes("tent"));
+  //   setProducts(result);
+  // };
+
+  // const filterCamping = () => {
+  //   const result = productsFromFile.filter((product) =>
+  //     product.category.includes("camping"));
+  //   setProducts(result);
+  // };
+
+  const filterByCategory = (categoryClicked) => {
+    const result = dbProducts.filter(
+      (product) => product.category === categoryClicked
     );
     setProducts(result);
   };
 
-  const filterUsb = () => {
-    const result = productsFromFile.filter((product) =>
-      product.category.includes("usb drive"));
-    setProducts(result);
-  };
-
-  const filterTent = () => {
-    const result = productsFromFile.filter((product) =>
-      product.category.includes("tent"));
-    setProducts(result);
-  };
-
-  const filterCamping = () => {
-    const result = productsFromFile.filter((product) =>
-      product.category.includes("camping"));
-    setProducts(result);
-  };
-
-  
   return (
     <div>
-      <div>{t("total-products")} {products.length} {t("pcs")}</div>
+      <div>
+        {t("total-products")} {products.length} {t("pcs")}
+      </div>
       <button onClick={reset}>{t("reset")}</button>
       <br />
-      <button onClick={sortAZ}>{t("sort-a-z")}</button>
+      <button onClick={() => sortAZ}>{t("sort-a-z")}</button>
       <button onClick={sortZA}>{t("sort-z-a")}</button>
       <button onClick={sortPriceAsc}>{t("sort-price-asc")}</button>
       <button onClick={sortPriceDesc}>{t("sort-price-desc")}</button>
       <br />
-      <button onClick={filterMemory}>{t("memory-bank")}</button>
-      <button onClick={filterUsb}>{t("usb-drive")}</button>
-      <button onClick={filterTent}>{t("tent")}</button>
-      <button onClick={filterCamping}>{t("camping")}</button>
+      {/* <button onClick={() => filterByCategory("memory bank")}>{t("memory-bank")}</button>
+      <button onClick={() => filterByCategory("usb drive")}>{t("usb-drive")}</button>
+      <button onClick={() => filterByCategory("tent")}>{t("tent")}</button>
+      <button onClick={() => filterByCategory("camping")}>{t("camping")}</button> */}
+      {categories.map((category) => (
+        <button
+          key={category.name}
+          onClick={() => filterByCategory(category.name)}
+        >
+          {category.name}
+        </button>
+      ))}
       <br /> <br />
       {products.map((product) => (
         <div key={product.id}>
@@ -114,7 +149,10 @@ function reset() {
           <br />
           <div>{product.price.toFixed(2)}€</div>
           <br />
-          <button onClick={() => addToCart(product)}> {t("addTo-cart")}</button>{" "}
+          <button onClick={() => addToCart(product)}>
+            {" "}
+            {t("addTo-cart")}
+          </button>{" "}
           <Button as={Link} to={"/product/" + product.id}>
             {t("details")}
           </Button>
@@ -123,7 +161,6 @@ function reset() {
         </div>
       ))}
       <ToastContainer position="bottom-left" autoClose={2000} theme="dark" />
-
     </div>
   );
 }
