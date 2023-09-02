@@ -3,6 +3,8 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import ChangeView from "./ChangeView";
+import config from "../data/config.json"
+import { useEffect, useState } from "react";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -14,6 +16,14 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 function Map(props) {
+  const [shops, uShops] = useState([]);
+
+  useEffect(() => {
+    fetch(config.shops)
+      .then(res => res.json())
+      .then(json => uShops(json || []))
+  }, []);
+
   return (
     <div>
       <MapContainer
@@ -30,18 +40,18 @@ function Map(props) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[59.4219, 24.7938]}>
+        {/* <Marker position={[59.4219, 24.7938]}>
           <Popup>
             Ülemiste keskus. <br /> Avatud 9-20
           </Popup>
-        </Marker>
-        <Marker position={[59.4272, 24.723]}>
+        </Marker> */}
+        {/* <Marker position={[59.4272, 24.723]}>
           <Popup>
             Kristiine keskus. <br /> Avatud 10-21
           </Popup>
-        </Marker>
+        </Marker> */}
         {/* 58.3780, 26.7306 */}
-        <Marker position={[58.378, 26.7306]}>
+        {/* <Marker position={[58.378, 26.7306]}>
           <Popup>
             Tasku keskus. <br /> Avatud 10-21
             <a
@@ -52,7 +62,16 @@ function Map(props) {
               Turu 2, Tartu
             </a>
           </Popup>
-        </Marker>
+        </Marker> */}
+        {shops.map(shop => 
+          <Marker position={[shop.lati, shop.long]}>
+            <Popup>
+              {shop.name} <br /> {shop.open} <br />
+              {shop.url}
+          </Popup>
+          </Marker>
+          
+        )}
       </MapContainer>
     </div>
   );

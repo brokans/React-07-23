@@ -1,5 +1,5 @@
 {
     "products": "https://bros-webshop-default-rtdb.europe-west1.firebasedatabase.app/products.json",
     "categories": "https://bros-webshop-default-rtdb.europe-west1.firebasedatabase.app/categories.json",
-    "shops": "KODUS"
+    "shops": "https://bros-webshop-default-rtdb.europe-west1.firebasedatabase.app/shops.json"
 }

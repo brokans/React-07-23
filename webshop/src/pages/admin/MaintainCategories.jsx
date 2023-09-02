@@ -17,6 +17,7 @@ function MaintainCategories() {
   function addCategory() {
     categories.push({"name": categoryRef.current.value});
     uCategories(categories.slice());
+    
     fetch(config.categories, {
       method: "PUT",
       body: JSON.stringify(categories)
