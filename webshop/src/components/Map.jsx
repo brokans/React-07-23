@@ -5,6 +5,7 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import ChangeView from "./ChangeView";
 import config from "../data/config.json"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -66,8 +67,11 @@ function Map(props) {
         {shops.map(shop => 
           <Marker position={[shop.lati, shop.long]}>
             <Popup>
-              {shop.name} <br /> {shop.open} <br />
-              {shop.url}
+              {shop.name} <br /> 
+              {"Avatud: "}{shop.open} <br />
+              {/* <Link>{shop.url}</Link> <br /> */}
+              <Link target="_blank" to={shop.url} rel="noreferrer">Juhised</Link>
+              
           </Popup>
           </Marker>
           

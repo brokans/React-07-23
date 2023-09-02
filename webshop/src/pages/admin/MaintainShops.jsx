@@ -63,7 +63,7 @@ function MaintainShops() {
       <input ref={addressRef} type="text" /> <br />
       <label htmlFor="">URL:</label> <br />
       <input ref={urlRef} type="text" /> <br />
-      <button onClick={addShop}>Lisa</button>
+      <button onClick={addShop}>Lisa</button> <br /> <br />
       {shops.map((shop, index) => 
         <div>
           <div>{shop.name}</div>
