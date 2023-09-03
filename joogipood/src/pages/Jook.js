@@ -1,12 +1,29 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import joogidFailist from '../data/joogidFail.json'
+import React, { useEffect, useRef, useState } from 'react'
+// import { useParams } from 'react-router-dom'
+// import joogidFailist from '../data/joogidFail.json'
+import config from "../data/config.json"
 
 
 function Jook() {
-  const {number} = useParams();
+  // const {number} = useParams();
+  const [joogid, uJoogid] = useState([]);
+  const joogifRef = useRef();
+
+  useEffect(() => {
+    fetch(config.joogidDbUrl)
+      .then(res => res.json())
+      .then(json => uJoogid(json))
+
+    fetch(config.joogidDbUrl, {
+      method: "PUT",
+      body: JSON.stringify(joogid)
+    })
+
+  }, [joogid]);
+
   // salvestab URL'i toote numbri
-  const leitud = joogidFailist[number];
+  const leitud = joogifRef();
+
   return (
     <div>
       {/* Kuvab joogi nime */}

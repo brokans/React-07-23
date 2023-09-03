@@ -1,27 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useRef, useState } from 'react';
-import joogidFail from "../data/joogidFail.json"
+// import joogidFail from "../data/joogidFail.json"
+import config from "../data/config.json"
+
 
 function Lisa() {
-    function newDrink() {
-        joogid.push(joogidRef.current.value);
-        uJoogid(joogid.slice());
-      } 
+  const jookdRef = useRef();
+  const [joogid, uJoogid] = useState([]);
 
-      const [joogid, uJoogid] = useState(joogidFail);
-      const joogidRef = useRef();
-    
+  useEffect(() => {
+    fetch(config.joogidDbUrl)
+      .then(res => res.json())
+      .then(json => uJoogid(json || []))
+  }, []);
+
+  function addNewDrink() {
+    joogid.push({"nimi": jookdRef.current.value});
+    uJoogid(joogid.slice())
+    fetch(config.joogidDbUrl, {
+      method: "PUT",
+      body: JSON.stringify(joogid)
+   })
+} 
+
       
   return (
     <div>
         <label htmlFor="">Lisa uus toode:</label>
         <br />
-        <input ref={joogidRef} type="text" />
-        <button onClick={() => newDrink()}>Sisesta</button>
+        <input ref={jookdRef} type="text" />
+        <button onClick={() => addNewDrink()}>Sisesta</button>
 
-        {joogid.map((element, index) => (
-        <div>
-          <span>{element}</span>
+        {joogid.map((element) => (
+        <div key={element.nimi}>
+          <div>{element.nimi}</div>
         </div>
       ))}
 
