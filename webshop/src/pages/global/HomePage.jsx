@@ -5,15 +5,17 @@ import { useTranslation } from "react-i18next";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { useEffect } from "react";
 import config from "../../data/config.json"
+import styles from "../../css/HomePage.module.css";
 
 function HomePage() {
   const { t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [dbProducts, setDbProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
 
   useEffect(() => {
@@ -22,6 +24,7 @@ function HomePage() {
       .then((json) => {
         setProducts(json || []);
         setDbProducts(json || []);
+        setLoading(false);
       });
 
     fetch(config.categories)
@@ -114,6 +117,12 @@ function HomePage() {
     setProducts(result);
   };
 
+  
+
+  if (isLoading === true) {
+    return <Spinner/>
+  }
+
   return (
     <div>
       <div>
@@ -139,11 +148,11 @@ function HomePage() {
         </button>
       ))}
       <br /> <br />
+      <div className={styles.products}>
       {products.map((product) => (
-        <div key={product.id}>
+        <div key={product.id} className={styles.product}>
           <img src={product.image} alt="" />
           <br />
-          <div>{product.id}</div>
           <br />
           <div>{product.name}</div>
           <br />
@@ -160,6 +169,7 @@ function HomePage() {
           <br />
         </div>
       ))}
+      </div>
       <ToastContainer position="bottom-left" autoClose={2000} theme="dark" />
     </div>
   );

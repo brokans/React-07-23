@@ -1,18 +1,21 @@
-import React, { useRef, useState } from "react";
-import productsFromFile from "../../data/products.json";
+import React, { useEffect, useRef, useState } from "react";
+// import productsFromFile from "../../data/products.json";
 import { useNavigate, useParams } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import "react-toastify/dist/ReactToastify.css";
+import { Spinner } from "react-bootstrap";
+import config from "../../data/config.json";
+
+// Kategooriate dropdownist näitamine läbi andmebaasi
+// Toodete võtmine andmebaasist
+// Toote muutmise lisamine andmebaasi (kontrolli hiljem andmebaasist kas ka seal muutus)
+
 
 function EditProduct() {
   const { productId } = useParams();
-  const found = productsFromFile.find(
-    (product) => product.id === Number(productId)
-  );
-
+ 
   const { t } = useTranslation();
-
   const idRef = useRef();
   const nameRef = useRef();
   const priceRef = useRef();
@@ -21,45 +24,83 @@ function EditProduct() {
   const descriptionRef = useRef();
   const activeRef = useRef();
   const navigate = useNavigate();
+  const [idUnique, uIdUnique] = useState(true);
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const found = products.find(product => product.id === Number(productId));
 
-  function edit() {
-    const index = productsFromFile.findIndex(
-      (product) => product.id === Number(productId)
-    );
-    productsFromFile[index] = {
-      id: Number(idRef.current.value),
-      image: imageRef.current.value,
-      name: nameRef.current.value,
-      price: Number(priceRef.current.value),
-      description: descriptionRef.current.value,
-      category: categoryRef.current.value,
-      active: activeRef.current.checked,
-    };
-    navigate("/admin/maintain-products");
+  useEffect(() => {
+    fetch(config.products)
+      .then(res => res.json())
+      .then(json => {
+        setProducts(json || [])
+        setLoading(false);
+      });
 
-    if (found === undefined) {
-      return <div>Product not found!</div>;
+    fetch(config.categories)
+      .then(res => res.json())
+      .then(json => setCategories(json || []));
+    }, []);
+
+    function edit() {
+      if (idRef.current.value === "") {
+        toast.error(t("edit-product.edit-product-id"));
+        return; // funktsioon ei lähe edasi siit kohast
+      }
+  
+      if (nameRef.current.value === "") {
+        toast.error(t("edit-product.edit-product-name"));
+        return;
+      }
+  
+      //  nameRef.current.value[0].toLowerCase() === nameRef.current.value[0]
+      if (nameRef.current.value[0].toUpperCase() !== nameRef.current.value[0]) {
+        toast.error(t("edit-product.edit-product-upper"));
+        return;
+      }
+  
+      if (imageRef.current.value.includes(" ")) {
+        toast.error(t("edit-product.edit-product-image"));
+        return;
+      }
+   
+      const index = products.findIndex(product => product.id === Number(productId));
+      products[index] = {
+        "id": Number(idRef.current.value),
+        "image": imageRef.current.value,
+        "name": nameRef.current.value,
+        "price": Number(priceRef.current.value),
+        "description": descriptionRef.current.value,
+        "category": categoryRef.current.value,
+        "active": activeRef.current.checked
+      };
+      navigate("/admin/maintain-products");
+      fetch(config.products , {
+        method: "PUT", 
+        body: JSON.stringify(products)
+      });
     }
+
+    const checkIdUniqueness = () => {
+      if (idRef.current.value === productId) {
+        uIdUnique(true);
+        return;
+      }
+      const index = products.findIndex(product => product.id === Number(idRef.current.value));
+      if (index === -1) {
+        uIdUnique(true);
+      } else {
+        uIdUnique(false);
+      }
+    };
+     
+  if (isLoading === true) {
+    return <Spinner/>
   }
 
-  const [idUnique, uIdUnique] = useState(true);
-
-  function checkIdUnique() {
-    if (idRef.current.value === productId){
-      uIdUnique(true)
-      return;
-    }
-
-    const index = productsFromFile.findIndex(
-      (product) => product.id === Number(idRef.current.value)
-    );
-
-    if (index === -1) {
-      // Kui toodet pole, aga otsitakse, on index -1
-      uIdUnique(true);
-    } else {
-      uIdUnique(false);
-    }
+  if (found === undefined) {
+    return <div>Product not found</div>
   }
 
   return (
@@ -71,7 +112,7 @@ function EditProduct() {
       <input
         className={idUnique === false ? "error" : undefined}
         ref={idRef}
-        onChange={checkIdUnique}
+        onChange={checkIdUniqueness}
         defaultValue={found.id}
         type="number"
       />
@@ -90,10 +131,10 @@ function EditProduct() {
       <br />
       <label htmlFor="">{t("category")}</label>
       <br />
-      <input ref={categoryRef} defaultValue={found.category} type="text" />
-      <br />
+      <select ref={categoryRef} defaultValue={found.category}>
+        {categories.map(category => <option key={category.name}>{category.name}</option> )}
+      </select><br />
       <label htmlFor="">{t("description")}</label>
-      <br />
       <input
         ref={descriptionRef}
         defaultValue={found.description}
@@ -109,7 +150,7 @@ function EditProduct() {
       </button>
       <ToastContainer position="top-right" autoClose={2000} theme="dark" />
     </div>
-  );
+  )
 }
 
 export default EditProduct;
@@ -131,3 +172,4 @@ export default EditProduct;
 //       toast.error("Please enter product name!!");
 //       return;
 //     }
+

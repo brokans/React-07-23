@@ -13,6 +13,14 @@
     "add-product": "Lisa Toode",
     "maintain-products": "Halda Tooteid"
   },
+
+  "edit-product": {
+    "edit-product-id": "Tühjaks IDks ei saa toote ID-d muuta!",
+    "edit-product-name": "Tühjaks nimetuseks ei saa toote nime muuta!",
+    "edit-product-upper": "Väikse tähega ei saa toote nime alustada!",
+    "edit-product-image": "Tühikuga ei saa pildi aadressi lisada!"
+  },
+
   "total-products": "Toodete Koguarv:",
   "pcs": "tk:",
   "sort-a-z": "Sorteeri A-Z",

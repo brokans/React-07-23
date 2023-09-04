@@ -14,9 +14,11 @@ function Tooted() {
     <div>
         {products.map((product) =>
             <div>
-                <div>{product.title}</div>
-                <div>{product.price}</div>
-                <div>{product.thumbnail}</div>
+                <br />
+                <div>Toote nimi: {product.title}</div>
+                <div>Hind: {product.price}</div>
+                <img src={product.thumbnail} alt="" /> 
+                <br />
                 <br />
             </div>
             

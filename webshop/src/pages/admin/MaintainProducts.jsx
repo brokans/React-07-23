@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 // import productsFromFile from "../../data/products.json";
-import { Button } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ToastContainer, toast } from "react-toastify";
 import { useRef } from "react";
 import config from "../../data/config.json"
+import "../../css/MaintainProducts.css";
 
 
 function MaintainProducts() {
@@ -13,6 +14,8 @@ function MaintainProducts() {
   const { t } = useTranslation();
   const searchedRef = useRef();
   const [dbProducts, setDbProducts] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
 
 
   useEffect(() => {
@@ -21,6 +24,7 @@ function MaintainProducts() {
       .then((json) => {
         setProducts(json || []);
         setDbProducts(json || []);
+        setLoading(false);
       });
   }, []);
 
@@ -44,6 +48,10 @@ function MaintainProducts() {
     setProducts(result);
   }
 
+  if (isLoading === true) {
+    return <Spinner/>
+  }
+
   return (
     <div>
       <input onChange={searchFromProducts} ref={searchedRef} type="text" />
@@ -51,24 +59,40 @@ function MaintainProducts() {
         {" "}
         {products.length} {t("products-found")}
       </div>
-      {products.map((product, index) => (
-        <div
-          key={product.id}
-          className={product.active ? "active" : "inactive"}
-        >
-          <img src={product.image} alt="" />
-          <div>{product.id}</div>
-          <div>{product.name}</div>
-          <div>{product.price}</div>
-          <div>{product.category}</div>
-          <div>{product.description}</div>
-          <button onClick={() => deleteProduct(index)}>{t("delete")}</button>
-          <Button as={Link} to={"/admin/edit-product/" + product.id}>
-            {t("edit")}
-          </Button>
-          <br /> <br />
-        </div>
-      ))}
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Actions</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          {products.map((product, index) => (
+            <tr
+              key={product.id}
+              className={product.active ? "active" : "inactive"}
+            >
+              <td><img src={product.image} alt="" /></td>
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              <td>{product.price}</td>
+              <td>{product.category}</td>
+              <td>{product.description}</td>
+              <td>
+                <button onClick={() => deleteProduct(index)}>{t("delete")}</button>
+                <Button as={Link} to={"/admin/edit-product/" + product.id}>
+                {t("edit")}
+              </Button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       <ToastContainer position="top-right" autoClose={2000} theme="dark" />
     </div>

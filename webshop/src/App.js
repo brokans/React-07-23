@@ -69,17 +69,17 @@ function App() {
               {/*  
               <button onClick={changeLangEE}>eesti keel</button> */}
               <Nav.Link>
-                <button onClick={changeLangEN}>Eng</button>
                 <button onClick={changeLangEE}>Est</button>
+                <button onClick={changeLangEN}>Eng</button>
                 <button onClick={changeLangFI}>Fin</button>
                 <button onClick={changeLangLV}>Lat</button>
                 <img src="../public/estonian.png" alt="" />
               </Nav.Link>
               <Nav.Link as={Link} to="login">
-                {t("login")}
+                {t("nav.login")}
               </Nav.Link>
               <Nav.Link as={Link} to="cart">
-                {t("cart")}
+                {t("nav.cart")}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -163,3 +163,8 @@ export default App;
 // 21.08 
 // 3-4 keel
 // Addproducts ID unikaalsuse kontroll
+
+// 06.09
+// Karusell-galerii Bootstrapist
+// CSS moodulite jätk
+// 

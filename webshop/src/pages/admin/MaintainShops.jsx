@@ -69,7 +69,6 @@ function MaintainShops() {
           <div>{shop.name}</div>
           <div>Avatud: {shop.open}</div>
           <div>{shop.address}</div>           
-          <div>{shop.url}</div>
            <button onClick={() => deleteShop(index)}>X</button> <br /> <br />
         </div>
       )}

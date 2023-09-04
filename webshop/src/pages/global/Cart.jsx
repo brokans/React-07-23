@@ -66,6 +66,39 @@ function Cart() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
+  function pay() {
+    const url="https://igw-demo.every-pay.com/api/v4/payments/oneoff";
+    const paymentBody = {
+      "api_username": "e36eb40f5ec87fa2",  // turvaelement
+      "account_name": "EUR3D1",           // konto
+      "amount": cartSum(),                // tellimuse summa
+      "order_reference": Math.random() * 999999,                    // tellimuse number
+      "nonce": "a9b7f7e7" + Math.random() * 999999 + new Date(),    // turvaelement
+      "timestamp": new Date(),            // turvaelement
+      "customer_url": "https://neti.ee"   // kuhu tagasi suunatakse
+      };
+    const paymentHeader = {
+      "Authorization": "Basic ZTM2ZWI0MGY1ZWM4N2ZhMjo3YjkxYTNiOWUxYjc0NTI0YzJlOWZjMjgyZjhhYzhjZA==",
+      "Content-Type": "application/json"
+    };
+
+
+
+    fetch(url, {method: "POST", body: JSON.stringify(paymentBody), headers: paymentHeader})
+      .then(res => res.json())
+      .then(json => window.location.href = json.payment_link);
+  }
+
+  // 1. HTML's
+  // <a href />
+  // <Link>
+  // 2. const navigate = useNavigation(); <--- siseseks suunamiseks
+  // nav(json.payment_link)
+  // 3. windows.location.href = ""https://neti.ee"" <-- rakendusest välja suunamiseks
+  if (parcelMachines.length === 0) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div>
       <div>
@@ -84,7 +117,7 @@ function Cart() {
         )}
         <br /> <br />
         {cart.map((cartProduct, index) => (
-          <div className="product" key={cartProduct.index}>
+          <div className="product" key={index}>
             <img className="image" src={cartProduct.product.image} alt="" />
             <br />
             <div className="name">{cartProduct.product.name}</div>
@@ -131,6 +164,8 @@ function Cart() {
             <select name="" id="">
               {parcelMachines.filter((pm) => pm.A0_NAME === "EE").map((pm) => (<option key={pm.NAME}>{pm.NAME}</option>))}
             </select>
+            <div> Summary: {cartSum()}$</div>
+            <button onClick={pay}>Maksma</button>
           </div>
         </div>
       )}
@@ -143,6 +178,7 @@ function Cart() {
       <br />
 
       <ToastContainer position="top-right" autoClose={2000} theme="dark" />
+      
     </div>
   );
 }
