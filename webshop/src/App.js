@@ -1,9 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
 
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import { useTranslation } from 'react-i18next';
+
 // import { changeLanguage } from "i18next";
 
 import "./App.css";
@@ -17,105 +14,41 @@ import HomePage from "./pages/global/HomePage";
 import Cart from "./pages/global/Cart";
 import Shops from "./pages/global/Shops";
 import SingleProduct from "./pages/global/SingleProduct";
-import {ContactUs} from "./pages/global/ContactUs";
+import { ContactUs } from "./pages/global/ContactUs";
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
 import NotFound from "./pages/global/NotFound";
-
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
-  const { t, i18n } = useTranslation();
   
-  function changeLangEE(){
-    i18n.changeLanguage("ee");
-    localStorage.setItem("language", "ee");
-  }
-
-  function changeLangEN() {
-    i18n.changeLanguage("en");
-    localStorage.setItem("language", "en");
-  }
-  function changeLangFI() {
-    i18n.changeLanguage("fi");
-    localStorage.setItem("language", "fi");
-  }
-  function changeLangLV() {
-    i18n.changeLanguage("lv");
-    localStorage.setItem("language", "lv");
-  }
-
 
   return (
     <div className="App">
-      <Navbar collapseOnSelect expand="lg" className="bg-body-secondary">
-        <Container>
-          <Navbar.Brand as={Link} to="/">
-            Bro WebShop
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="admin">
-                {t("nav.admin")}
-              </Nav.Link>
-              <Nav.Link as={Link} to="contact">
-                {t("nav.contact")}
-              </Nav.Link>
-              <Nav.Link as={Link} to="shops">
-                {t("nav.shops")}
-              </Nav.Link>
-            </Nav>
-            <Nav>
-              {/*  
-              <button onClick={changeLangEE}>eesti keel</button> */}
-              <Nav.Link>
-                <button onClick={changeLangEE}>Est</button>
-                <button onClick={changeLangEN}>Eng</button>
-                <button onClick={changeLangFI}>Fin</button>
-                <button onClick={changeLangLV}>Lat</button>
-                <img src="../public/estonian.png" alt="" />
-              </Nav.Link>
-              <Nav.Link as={Link} to="login">
-                {t("nav.login")}
-              </Nav.Link>
-              <Nav.Link as={Link} to="cart">
-                {t("nav.cart")}
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
+      <NavigationBar/>
       {/* <div>Admin</div> */}
-      <Link to="admin">
-      </Link>
-      <Link to="admin/add-product">
-      </Link>
-      <Link to="admin/edit-product">
-      </Link>
-      <Link to="admin/maintain-categories">
-      </Link>
-      <Link to="admin/maintain-shops">
-      </Link>
-      <Link to="admin/maintain-products">
-      </Link>
+      <Link to="admin"></Link>
+      <Link to="admin/add-product"></Link>
+      <Link to="admin/edit-product"></Link>
+      <Link to="admin/maintain-categories"></Link>
+      <Link to="admin/maintain-shops"></Link>
+      <Link to="admin/maintain-products"></Link>
       <br />
       <br />
       {/* GLOBAL LINGID */}
-      <Link to="">
-      </Link>
-      <Link to="cart">
-      </Link>
-      <Link to="contact">
-      </Link>
-      <Link to="shops">
-      </Link>
+      <Link to=""></Link>
+      <Link to="cart"></Link>
+      <Link to="contact"></Link>
+      <Link to="shops"></Link>
 
       <Routes>
         {/* ADMIN */}
         <Route path="/admin" element={<AdminHome />} />
         <Route path="/admin/add-product" element={<AddProduct />} />
-        <Route path="/admin/edit-product/:productId" element={<EditProduct />} />
+        <Route
+          path="/admin/edit-product/:productId"
+          element={<EditProduct />}
+        />
         <Route
           path="/admin/maintain-categories"
           element={<MaintainCategories />}
@@ -148,9 +81,9 @@ export default App;
 // 1. HomePages sorteerimine ja filtreerimine +
 // 2. MaintainProductsis kustutamine (refreshiga tulevad tagasi) +
 // 3. AddProduct lisamine +
-// 4. SingleProduct ühe toote vaatamine + 
-// 5a. HomePages võimaldada ostukorvi lisada + 
-// 5b. Cart.js lehel võimaldada ostukorvi sisu vaadata + 
+// 4. SingleProduct ühe toote vaatamine +
+// 5a. HomePages võimaldada ostukorvi lisada +
+// 5b. Cart.js lehel võimaldada ostukorvi sisu vaadata +
 //      ostukorvist kustutada, ostukorvi tühjendada, ostukorvi kogusummat vaadata
 //      dünaamiline väljakuvamine (tühjendamine ja kogusumma peita kui tühi)
 //              kui tühi, siis öelda, et on tühi
@@ -160,11 +93,11 @@ export default App;
 //          1h-2h et see peale panna kui on juba korra oma peaga läbi tehtud
 // 7. React-toastify peale: kustutades, uut toodet lisades, ostukorvi lisades
 
-// 21.08 
+// 21.08
 // 3-4 keel
 // Addproducts ID unikaalsuse kontroll
 
 // 06.09
 // Karusell-galerii Bootstrapist
 // CSS moodulite jätk
-// 
+//

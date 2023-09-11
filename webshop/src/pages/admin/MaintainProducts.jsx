@@ -6,7 +6,8 @@ import { useTranslation } from "react-i18next";
 import { ToastContainer, toast } from "react-toastify";
 import { useRef } from "react";
 import config from "../../data/config.json"
-import "../../css/MaintainProducts.css";
+import styles from "../../css/MaintainProducts.module.css";
+
 
 
 function MaintainProducts() {
@@ -28,10 +29,18 @@ function MaintainProducts() {
       });
   }, []);
 
-  function deleteProduct(index) {
+  function deleteProduct(productId) {
+    const index = dbProducts.findIndex(product => product.id === productId)
     dbProducts.splice(index, 1);
-    setProducts(dbProducts.slice());
-    toast.success(t("product-deleted"));
+    fetch(
+      config.products,
+      { 
+        method: "PUT", 
+        body: JSON.stringify(dbProducts) 
+      }).then(() => {
+        toast.success(t("product-deleted"));
+        searchFromProducts();
+      })
   }
 
   function searchFromProducts() {
@@ -73,10 +82,10 @@ function MaintainProducts() {
 
         </thead>
         <tbody>
-          {products.map((product, index) => (
+          {products.map(product => (
             <tr
               key={product.id}
-              className={product.active ? "active" : "inactive"}
+              className={ product.active ? styles.active : styles.inactive }
             >
               <td><img src={product.image} alt="" /></td>
               <td>{product.id}</td>
@@ -85,7 +94,7 @@ function MaintainProducts() {
               <td>{product.category}</td>
               <td>{product.description}</td>
               <td>
-                <button onClick={() => deleteProduct(index)}>{t("delete")}</button>
+                <button onClick={() => deleteProduct(product.id)}>{t("delete")}</button>
                 <Button as={Link} to={"/admin/edit-product/" + product.id}>
                 {t("edit")}
               </Button></td>
