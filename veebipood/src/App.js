@@ -14,6 +14,8 @@ import HaldaTooted from './pages/HaldaTooted';
 import { useState } from 'react';
 import YksikPood from './pages/YksikPood';
 
+
+
 // FIREBASE GOOGLE SIDUMINE TERMINALIS
 // Kõigepealt uus projekt firebase lehel ja siis add firebase to your web app
 // npm install firebase, et googlega siduda
