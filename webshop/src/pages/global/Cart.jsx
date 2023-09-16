@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../../css/Cart.module.css";
 // import cartFromFile from "../../data/cart.json";
 import { Link } from "react-router-dom";
@@ -6,8 +6,10 @@ import { ToastContainer, toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import ParcelMachine from "../../components/cart/ParcelMachine";
 import Payment from "../../components/cart/Payment";
+import { CartSumContext } from "../../store/CartSumContext";
 
 function Cart() {
+  const { setCartSum } = useContext(CartSumContext);
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart") || "[]")
   );
@@ -19,12 +21,15 @@ function Cart() {
     setCart(cart.slice());
     toast.error(t("cart-empty"));
     localStorage.setItem("cart", JSON.stringify(cart));
+    setCartSum(summedPrice());
   }
 
   function increaseQuantity(index) {
     cart[index].quantity++;
     setCart(cart.slice());
     localStorage.setItem("cart", JSON.stringify(cart));
+    setCartSum(summedPrice());
+
   }
 
   function decreaseQuantity(index) {
@@ -34,9 +39,11 @@ function Cart() {
     }
     setCart(cart.slice());
     localStorage.setItem("cart", JSON.stringify(cart));
+    setCartSum(summedPrice());
+
   }
 
-  function cartSum() {
+  function summedPrice() {
     let sum = 0;
     cart.forEach(
       (cartProduct) =>
@@ -49,6 +56,8 @@ function Cart() {
     cart.splice(index, 1);
     setCart(cart.slice());
     localStorage.setItem("cart", JSON.stringify(cart));
+    setCartSum(summedPrice());
+
   }
 
   return (
@@ -117,9 +126,9 @@ function Cart() {
           <ParcelMachine />
           {/* Saadan Payment.jsx faili funktsiooni väärtuse */}
           <div className="total">
-            {t("subtotal")} {cartSum()}€{" "}
+            {t("subtotal")} {summedPrice()}€{" "}
           </div>
-          <Payment sum={cartSum()}/>
+          <Payment sum={summedPrice()}/>
         </div>
       )}
 

@@ -106,6 +106,7 @@ function EditProduct() {
 
   return (
     <div>
+      {found.name}
       {idUnique === false && <div>{t("not-unique")}</div>}
       <img src={found.image} alt="" />
       <label htmlFor="">ID</label>
@@ -135,7 +136,7 @@ function EditProduct() {
       <select ref={categoryRef} defaultValue={found.category}>
         {categories.map(category => <option key={category.name}>{category.name}</option> )}
       </select><br />
-      <label htmlFor="">{t("description")}</label>
+      <label htmlFor="">{t("description")}</label> <br />
       <input
         ref={descriptionRef}
         defaultValue={found.description}

@@ -5,9 +5,14 @@ import Container from "react-bootstrap/Container";
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 // import { t } from 'react-i18next';
+import { useContext } from 'react';
+import { CartSumContext } from "./../store/CartSumContext";
+import { AuthContext } from '../store/AuthContext';
 
 function NavigationBar() {
     const { t, i18n } = useTranslation();
+    const { cartSum } = useContext(CartSumContext);
+    const { loggedIn, setLoggedIn } = useContext(AuthContext);
 
   function changeLangEE() {
     i18n.changeLanguage("ee");
@@ -56,12 +61,17 @@ function NavigationBar() {
                 <button onClick={changeLangLV}>Lat</button>
                 <img src="../public/estonian.png" alt="" />
               </Nav.Link>
-              <Nav.Link as={Link} to="login">
-                {t("nav.login")}
-              </Nav.Link>
+              <div>{cartSum}</div>
               <Nav.Link as={Link} to="cart">
                 {t("nav.cart")}
               </Nav.Link>
+              {loggedIn === false && <Nav.Link as={Link} to="login">
+                {t("nav.login")}
+              </Nav.Link>}
+              {loggedIn === false && <Nav.Link as={Link} to="signup">
+                {t("nav.signup")}
+              </Nav.Link>}
+              {loggedIn === true && <button onClick={[() => setLoggedIn(false), sessionStorage.removeItem("token")]}>Logout</button>}
             </Nav>
           </Navbar.Collapse>
         </Container>

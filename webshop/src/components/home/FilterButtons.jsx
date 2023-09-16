@@ -1,33 +1,49 @@
 import React from 'react'
-
-function FilterButtons() {
+// saab (props) asemel kasutada ka sulgudes ({}), nii ei pea koodi muutma
+function FilterButtons({dbProducts, setProducts, categories}) {
     // FILTRID
   // const filterMemory = () => {
-  //   const result = productsFromFile.filter((product) =>
+  //   const result = props.productsFromFile.filter((product) =>
   //     product.category.includes("memory bank")
   //   );
-  //   setProducts(result);
+  //   props.setProducts(result);
   // };
 
   // const filterUsb = () => {
-  //   const result = productsFromFile.filter((product) =>
+  //   const result = props.productsFromFile.filter((product) =>
   //     product.category.includes("usb drive"));
-  //   setProducts(result);
+  //     props.setProducts(result);
   // };
 
   // const filterTent = () => {
-  //   const result = productsFromFile.filter((product) =>
+  //   const result = props.productsFromFile.filter((product) =>
   //     product.category.includes("tent"));
-  //   setProducts(result);
+  //     props.setProducts(result);
   // };
 
   // const filterCamping = () => {
-  //   const result = productsFromFile.filter((product) =>
+  //   const result = props.productsFromFile.filter((product) =>
   //     product.category.includes("camping"));
-  //   setProducts(result);
+  //     props.setProducts(result);
   // };
+
+  const filterByCategory = (categoryClicked) => {
+    const result = dbProducts.filter(
+      (product) => product.category === categoryClicked
+    );
+    setProducts(result);
+  };
   return (
-    <div>Kodus teha</div>
+    <div>
+      {categories.map((category) => (
+        <button
+          key={category.name}
+          onClick={() => filterByCategory(category.name)}
+        >
+          {category.name}
+        </button>
+      ))}
+    </div>
   )
 }
 
