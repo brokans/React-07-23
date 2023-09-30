@@ -10,9 +10,7 @@ import { CartSumContext } from "../../store/CartSumContext";
 
 function Cart() {
   const { setCartSum } = useContext(CartSumContext);
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart") || "[]")
-  );
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart") || "[]"));
   
   const { t } = useTranslation();
 
