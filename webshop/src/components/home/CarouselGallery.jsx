@@ -3,30 +3,35 @@ import Carousel from "react-bootstrap/Carousel";
 
 function CarouselGallery() {
   return (
-    <div>
-      <Carousel>
+    <div className="main-carousel">
+      <Carousel fade interval={3000}>
         <Carousel.Item>
-          <img src="https://picsum.photos/id/237/500/200" alt="" />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
+          <img
+            className=" w-100"
+            src="https://i.postimg.cc/xCYF6q9h/wallpaperflare-com-wallpaper-1.jpg"
+            alt=""
+          />
         </Carousel.Item>
         <Carousel.Item>
-          <img src="https://picsum.photos/id/238/500/200" alt="" />
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
+          <img
+            className="w-100"
+            src="https://i.postimg.cc/NjF3qyqH/wallpaperflare-com-wallpaper-3.jpg"
+            alt=""
+          />
         </Carousel.Item>
         <Carousel.Item>
-          <img src="https://picsum.photos/id/239/500/200" alt="" />
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
+          <img
+            className="w-100"
+            src="https://i.postimg.cc/x8tbmpdq/wallpaperflare-com-wallpaper-4.jpg"
+            alt=""
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="w-100"
+            src="https://i.postimg.cc/7hrLKf9F/wallpaperflare-com-wallpaper-5.jpg"
+            alt=""
+          />
         </Carousel.Item>
       </Carousel>
     </div>

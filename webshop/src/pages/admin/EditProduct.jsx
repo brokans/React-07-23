@@ -66,7 +66,8 @@ function EditProduct() {
       }
    
       const index = products.findIndex(product => product.id === Number(productId));
-      products[index] = {
+      products[index] = 
+      {
         "id": Number(idRef.current.value),
         "image": imageRef.current.value,
         "name": nameRef.current.value,

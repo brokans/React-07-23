@@ -1,18 +1,20 @@
-import React from 'react'
+import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-// import { t } from 'react-i18next';
-import { useContext } from 'react';
+import { useContext } from "react";
 import { CartSumContext } from "./../store/CartSumContext";
-import { AuthContext } from '../store/AuthContext';
+import { AuthContext } from "../store/AuthContext";
+
+
 
 function NavigationBar() {
-    const { t, i18n } = useTranslation();
-    const { cartSum } = useContext(CartSumContext);
-    const { loggedIn, setLoggedIn } = useContext(AuthContext);
+  const { t, i18n } = useTranslation();
+  const { cartSum } = useContext(CartSumContext);
+  const { loggedIn, setLoggedIn } = useContext(AuthContext);
+
 
   function changeLangEE() {
     i18n.changeLanguage("ee");
@@ -31,9 +33,12 @@ function NavigationBar() {
     i18n.changeLanguage("lv");
     localStorage.setItem("language", "lv");
   }
+
+  
+
   return (
     <div>
-        <Navbar collapseOnSelect expand="lg" className="bg-body-secondary">
+      <Navbar collapseOnSelect expand="lg" style={{background: "#51829B"}}>
         <Container>
           <Navbar.Brand as={Link} to="/">
             Bro WebShop
@@ -50,34 +55,66 @@ function NavigationBar() {
               <Nav.Link as={Link} to="shops">
                 {t("nav.shops")}
               </Nav.Link>
+              
             </Nav>
             <Nav>
-              {/*  
-              <button onClick={changeLangEE}>eesti keel</button> */}
               <Nav.Link>
-                <button onClick={changeLangEE}>Est</button>
-                <button onClick={changeLangEN}>Eng</button>
-                <button onClick={changeLangFI}>Fin</button>
-                <button onClick={changeLangLV}>Lat</button>
+                <img
+                  className="lang"
+                  src="./flag.png"
+                  alt=""
+                  onClick={changeLangEE}
+                />
+                <img
+                  className="lang"
+                  src="./united-kingdom.png"
+                  alt=""
+                  onClick={changeLangEN}
+                />
+                <img
+                  className="lang"
+                  src="./fin-flag.png"
+                  alt=""
+                  onClick={changeLangFI}
+                />
+                <img
+                  className="lang"
+                  src="./latvia.png"
+                  alt=""
+                  onClick={changeLangLV}
+                />
                 <img src="../public/estonian.png" alt="" />
               </Nav.Link>
               <div>{cartSum}</div>
               <Nav.Link as={Link} to="cart">
                 {t("nav.cart")}
               </Nav.Link>
-              {loggedIn === false && <Nav.Link as={Link} to="login">
-                {t("nav.login")}
-              </Nav.Link>}
-              {loggedIn === false && <Nav.Link as={Link} to="signup">
-                {t("nav.signup")}
-              </Nav.Link>}
-              {loggedIn === true && <button onClick={[() => setLoggedIn(false), sessionStorage.removeItem("token")]}>Logout</button>}
+              {loggedIn === false && (
+                <Nav.Link as={Link} to="login">
+                  {t("nav.login")}
+                </Nav.Link>
+              )}
+              {loggedIn === false && (
+                <Nav.Link as={Link} to="signup">
+                  {t("nav.signup")}
+                </Nav.Link>
+              )}
+              {loggedIn === true && (
+                <button
+                  onClick={[
+                    () => setLoggedIn(false),
+                    sessionStorage.removeItem("token"),
+                  ]}
+                >
+                  {t("nav.logout")}
+                </button>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </div>
-  )
+  );
 }
 
-export default NavigationBar
+export default NavigationBar;

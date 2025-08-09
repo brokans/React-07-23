@@ -4,6 +4,8 @@
     "contact": "Kontaktid",
     "shops": "Poed",
     "login": "Sisselogimine",
+    "signup": "Registreeri",
+    "logout": "Logi välja",
     "cart": "Ostukorv"
   },
 
@@ -23,10 +25,12 @@
 
   "total-products": "Toodete Koguarv:",
   "pcs": "tk:",
+  "sort": "Sorteeri",
   "sort-a-z": "Sorteeri A-Z",
   "sort-z-a": "Sorteeri Z-A",
   "sort-price-asc": "Sorteeri Hind Kasvavalt",
   "sort-price-desc": "Sorteeri Hind Kahanevalt",
+  "filter": "Filtreeri",
   "memory-bank": "Mälupank",
   "usb-drive": "USB Mälupulk",
   "tent": "Telk",
@@ -49,6 +53,7 @@
   "active": "Aktiivne:",
   "add": "Lisa:",
   "add-product-text": "Lisa Toode:",
+  "search": "Otsi toodet",
   "reset": "Lähtesta",
   "products-found": "Toodet leitud.",
   "not-unique": "ID ei ole unikaalne.",

@@ -1,32 +1,7 @@
-import React from 'react'
-// saab (props) asemel kasutada ka sulgudes ({}), nii ei pea koodi muutma
-function FilterButtons({dbProducts, setProducts, categories}) {
-    // FILTRID
-  // const filterMemory = () => {
-  //   const result = props.productsFromFile.filter((product) =>
-  //     product.category.includes("memory bank")
-  //   );
-  //   props.setProducts(result);
-  // };
+import React from "react";
+import Button from "react-bootstrap/Button";
 
-  // const filterUsb = () => {
-  //   const result = props.productsFromFile.filter((product) =>
-  //     product.category.includes("usb drive"));
-  //     props.setProducts(result);
-  // };
-
-  // const filterTent = () => {
-  //   const result = props.productsFromFile.filter((product) =>
-  //     product.category.includes("tent"));
-  //     props.setProducts(result);
-  // };
-
-  // const filterCamping = () => {
-  //   const result = props.productsFromFile.filter((product) =>
-  //     product.category.includes("camping"));
-  //     props.setProducts(result);
-  // };
-
+function FilterButtons({ dbProducts, setProducts, categories }) {
   const filterByCategory = (categoryClicked) => {
     const result = dbProducts.filter(
       (product) => product.category === categoryClicked
@@ -36,15 +11,17 @@ function FilterButtons({dbProducts, setProducts, categories}) {
   return (
     <div>
       {categories.map((category) => (
-        <button
-          key={category.name}
-          onClick={() => filterByCategory(category.name)}
-        >
-          {category.name}
-        </button>
+        <div className="d-flex">
+          <Button
+            key={category.name}
+            onClick={() => filterByCategory(category.name)}
+          >
+            {category.name}
+          </Button>
+        </div>
       ))}
     </div>
-  )
+  );
 }
 
-export default FilterButtons
+export default FilterButtons;

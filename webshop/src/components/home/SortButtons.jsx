@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import Button from "react-bootstrap/Button";
 
 function SortButtons(props) {
   const { t } = useTranslation();
@@ -24,13 +25,12 @@ function SortButtons(props) {
     props.setProducts(props.products.slice());
   };
   return (
-    // Fragment et ei tekiks kujundamisel probleeme
-    <React.Fragment>
-      <button onClick={() => sortAZ}>{t("sort-a-z")}</button>
-      <button onClick={sortZA}>{t("sort-z-a")}</button>
-      <button onClick={sortPriceAsc}>{t("sort-price-asc")}</button>
-      <button onClick={sortPriceDesc}>{t("sort-price-desc")}</button>
-    </React.Fragment>
+    <div className="d-flex">
+        <Button onClick={sortAZ}>{t("sort-a-z")}</Button>
+        <Button onClick={sortZA}>{t("sort-z-a")}</Button>
+        <Button onClick={sortPriceAsc}>{t("sort-price-asc")}</Button>
+        <Button onClick={sortPriceDesc}>{t("sort-price-desc")}</Button>
+    </div>
   );
 }
 

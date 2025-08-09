@@ -1,8 +1,4 @@
 import { Link, Route, Routes } from "react-router-dom";
-
-
-// import { changeLanguage } from "i18next";
-
 import "./App.css";
 import AdminHome from "./pages/admin/AdminHome";
 import AddProduct from "./pages/admin/AddProduct";
@@ -26,7 +22,6 @@ function App() {
   return (
     <div className="App">
       <NavigationBar/>
-      {/* <div>Admin</div> */}
       <Link to="admin"></Link>
       <Link to="admin/add-product"></Link>
       <Link to="admin/edit-product"></Link>
@@ -72,32 +67,3 @@ function App() {
 
 export default App;
 
-// Muuta favicon + Nimi
-// Muuta Font
-// Panna firebase üles
-
-// 17.08
-// E, K
-// 1. HomePages sorteerimine ja filtreerimine +
-// 2. MaintainProductsis kustutamine (refreshiga tulevad tagasi) +
-// 3. AddProduct lisamine +
-// 4. SingleProduct ühe toote vaatamine +
-// 5a. HomePages võimaldada ostukorvi lisada +
-// 5b. Cart.js lehel võimaldada ostukorvi sisu vaadata +
-//      ostukorvist kustutada, ostukorvi tühjendada, ostukorvi kogusummat vaadata
-//      dünaamiline väljakuvamine (tühjendamine ja kogusumma peita kui tühi)
-//              kui tühi, siis öelda, et on tühi
-// 6. Mõnele kodusele projektile (nt uudised) peale ka tõlge ja Bootstrap
-//          praegu on lihtsasti meelde tuletatav
-//          2-3 kuu pärast on vaja uuesti teha
-//          1h-2h et see peale panna kui on juba korra oma peaga läbi tehtud
-// 7. React-toastify peale: kustutades, uut toodet lisades, ostukorvi lisades
-
-// 21.08
-// 3-4 keel
-// Addproducts ID unikaalsuse kontroll
-
-// 06.09
-// Karusell-galerii Bootstrapist
-// CSS moodulite jätk
-//
