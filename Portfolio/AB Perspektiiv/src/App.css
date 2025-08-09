@@ -1,0 +1,783 @@
+.App {
+  text-align: center;
+}
+
+.map-btn {
+  margin-top: 60px;
+}
+
+body {
+  background-color: white;
+}
+
+Nav.Link {
+  text-decoration: underline;
+}
+
+.logo {
+  height: 50px;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+.gold-btn {
+  background-color: lightgray;
+  color: black;
+  box-shadow: 6px 4px 5px rgb(29, 29, 29);
+}
+
+.admin-buttons {
+  display: flex;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+.admin-button {
+  margin: 2px;
+}
+
+.admin-tabs {
+  padding-top: 100px;
+}
+
+/* PROJEKT */
+.project-form {
+  padding-top: 80px;
+}
+/* HOMEPAGE */
+
+.homePageImg {
+  height: 100vh;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.homePage-img-container {
+  display: block;
+  width: 100%;
+  height: 60vh;
+}
+
+.homePage-img-container h1,
+p {
+  font-family: outfit;
+}
+
+h2 {
+  font-family: outfit;
+}
+
+.sa-info {
+  width: 50%;
+  margin: 40px 20px;
+  text-align: left;
+}
+
+.homepage-objects {
+  width: 60%;
+  margin: auto;
+}
+
+.all-objects {
+  text-align: left;
+  text-decoration: none;
+  color: black;
+}
+
+.all-objects:hover {
+  text-decoration: underline;
+}
+
+.services {
+  width: 90%;
+  margin: auto;
+  text-align: left;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.services p {
+  width: 80%;
+  font-size: 1.2rem;
+  padding-bottom: 40px;
+}
+
+.services h2 {
+  margin-bottom: 40px;
+}
+
+.teenused {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.teenuste-container {
+  display: flex;
+}
+
+.teenus {
+  display: block;
+  width: 100%;
+}
+
+.teenus p {
+  font-size: 1.6em;
+}
+
+.avalehe-ikoonid {
+  height: 46px;
+}
+
+/* TEENUSED */
+.services-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  margin-right: 40px;
+  gap: 30px;
+}
+
+.service {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  justify-content: center;
+}
+
+.service-icon {
+  height: 30px;
+}
+
+.service p {
+  font-size: 1.3rem;
+}
+
+.services-img {
+  width: 100%;
+  height: 80vh;
+}
+
+.services-img img {
+  width: auto;
+  height: 100%;
+}
+
+.services-tekst {
+  width: 100%;
+  text-align: center;
+}
+
+.services-tekst h2 {
+  margin-bottom: 30px;
+}
+
+.services-tekst p {
+  text-align: justify;
+  width: 80%;
+  padding-right: 30px;
+}
+
+.services-info {
+  text-align: center;
+  margin: auto;
+  padding-left: 25px;
+}
+
+/* CONTACTS */
+.contact-location {
+  display: flex;
+  width: 90%;
+  height: auto;
+  margin: auto;
+  margin-top: 80px;
+  box-shadow: 5px 5px 5px 5px gray;
+  gap: 10px;
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 40%;
+  gap: 40px;
+}
+
+.contact {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.contact img {
+  width: auto;
+  height: 500px;
+  padding-top: 80px;
+  padding-bottom: 10px;
+}
+
+.contact-location img {
+  width: 50%;
+  height: auto;
+}
+
+.contact p {
+  font-size: 18px;
+  line-height: 14px;
+}
+
+.contact-address {
+  text-align: justify;
+}
+
+.map {
+  height: 400px;
+  width: 40%;
+  margin: auto;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+/* CARDS */
+.homePageCard {
+  width: 400px;
+  height: auto;
+}
+
+.card_title {
+  font-size: 26px;
+  color: rgba(0, 0, 0, 0.993);
+  z-index: 5;
+  writing-mode: vertical;
+  text-orientation: upright;
+  text-align: start !important;
+}
+
+/* ARHITEKTUUR */
+.project-container {
+  margin: 20px 0;
+}
+
+.project-img-info-container {
+  display: flex;
+  /* align-items: flex-start; */
+  gap: 20px;
+  flex-wrap: wrap;
+  transition: all 0.5s ease;
+  margin: 20px;
+}
+
+.carousel-container {
+  display: flex;
+  flex: 1;
+  margin: auto;
+  max-width: 50%;
+  max-height: 55vh;
+  overflow: hidden;
+  transition: all 1s ease;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-container-int {
+  display: flex;
+  flex: 1;
+  margin: auto;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  transition: all 1s ease;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-container-int {
+  display: flex;
+  height: 90%;
+  width: 70%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-int img {
+  display: flex;
+  width: auto !important;
+  height: 100%;
+  object-fit: cover; /* Pilt täidab kogu ala, lõigatakse, kui on vajalik */
+  object-position: center;
+  
+}
+
+.project-info-container {
+  display: block;
+  flex: 1;
+  margin-top: -10px;
+  width: 30%;
+  padding-right: 10px;
+  transition: all 0.5s ease;
+}
+
+.project-name {
+  width: 100%;
+  text-align: left;
+  font-family: outfit;
+  font-weight: 400;
+}
+
+.project-info {
+  font-size: 1rem;
+  font-weight: 200;
+  font-family: outfit;
+  line-height: 1.5;
+  color: #333;
+  text-align: justify;
+}
+
+.homePageImgContainer {
+  width: 100%;
+  height: 80vh;
+  margin-top: 75px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.homePageImg {
+  width: 100%;
+  height: 80vh;
+  margin-bottom: 50px;
+}
+
+.homePageImgContainer .carousel {
+  width: auto;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homePageImgContainer carousel-item {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homePageImgContainer carousel-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1366px) {
+  .map {
+    width: 50%;
+  }
+
+  .contacts {
+    width: 50%;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .homePageImgContainer {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    height: auto;
+  }
+
+  .homePageImgContainer .carousel {
+    height: auto;
+  }
+  .project-img-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-info-container {
+    max-width: 83%;
+    padding: 15px;
+  }
+
+  .services p {
+    width: 80%;
+  }
+
+  .carousel-container {
+    width: 100%;
+  }
+
+  .contacts {
+    width: 60%;
+    margin-top: 30px;
+  }
+
+  .map {
+    width: 60%;
+  }
+}
+
+@media (max-width: 820px) {
+  .homePageImgContainer {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    height: auto;
+  }
+
+  .homePageImgContainer .carousel {
+    height: auto;
+  }
+
+  .project-img-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-info-container {
+    max-width: 80%;
+    padding: 15px;
+  }
+
+  .services-container {
+    display: block;
+  }
+
+  .services-img {
+    height: auto;
+    margin-bottom: 30px;
+  }
+
+  .services-img img {
+    width: auto;
+    height: 70vh;
+  }
+
+  .service {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    gap: 10px;
+  }
+
+  .teenused {
+    margin-bottom: 30px;
+  }
+
+  .services-info {
+    width: 60%;
+    margin-bottom: 30px;
+  }
+
+  .contacts {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .contact {
+    width: 60%;
+    margin: auto;
+  }
+
+  .contact img {
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+  }
+
+  .contact .angeelikaContactImg {
+    padding-top: 100px;
+  }
+
+  .map {
+    height: 300px;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-img-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-info-container {
+    max-width: 100%;
+    padding: 4px;
+  }
+
+  .project-img-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services {
+    margin: auto;
+    text-align: center;
+  }
+
+  .teenuste-container {
+    display: block;
+    margin: auto;
+  }
+
+  .teenus {
+    display: flex;
+    width: 90%;
+    flex-direction: column-reverse;
+    margin: auto;
+    padding-bottom: 25px;
+  }
+
+  .avalehe-ikoonid {
+    margin: auto;
+  }
+
+  .services-container {
+    display: block;
+  }
+
+  .services-img {
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .services-img img {
+    width: 80%;
+    height: auto;
+  }
+
+  .service {
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+  }
+
+  .service p {
+    width: 70%;
+    text-align: center;
+  }
+
+  .teenused {
+    margin-bottom: 30px;
+  }
+
+  .services p {
+    padding-bottom: 1px;
+    width: 100%;
+  }
+
+  .service .services-info {
+    text-align: justify;
+    width: 90%;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+
+  .avalehe-ikoonid {
+    width: 50px;
+  }
+
+  .homePageImgContainer {
+    margin-top: 70px;
+    width: auto;
+    height: 32vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homePageImgContainer carousel-item {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .homePageImgContainer carousel-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  .homePageImg {
+    height: 60vh;
+  }
+
+  .homePageImgContainer .carousel {
+    width: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-container {
+    flex: 1 1;
+    max-width: 100%;
+    transition: all 1s ease;
+  }
+
+  .contacts {
+    display: block;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+  .contact {
+    width: 80%;
+    margin: auto;
+  }
+
+  .contact img {
+    width: 100%;
+    height: auto;
+  }
+
+  .map {
+    height: 300px;
+    width: 95%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+}
+
+/* INTERIOR */
+
+.interior-projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  justify-content: center;
+}
+
+.interior-card-container {
+  width: 33%;
+  height: auto;
+  margin: 5px;
+}
+
+/* MANAGE PROJECTS */
+.manage_project {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 60%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px gray;
+}
+
+.product-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-right: 5px;
+}
+
+.product-card {
+  height: 500px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 5px 2px gray;
+}
+
+.product-img {
+  padding: 30px;
+  height: 160px;
+  width: auto;
+  transition: 0.5s;
+}
+
+.product-title {
+  height: 50px;
+}
+
+.product-description {
+  height: 60px;
+}
+
+.product-img:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.project-img-small-container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+.project-img-small {
+  width: 20%;
+  height: auto;
+  margin: 5px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.project-card-title {
+  margin-top: 5px;
+  margin-left: 20px;
+  text-align: right;
+  font-size: 20px;
+  z-index: 5;
+  text-align: start !important;
+  color: black;
+  border-bottom: none;
+}
+
+.project-extra-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  justify-content: center;
+}
+
+.extra-card-container {
+  width: auto;
+  height: auto;
+}
+
+/* SERVICES */
+
+.services-text {
+  display: block;
+  margin-top: 60px;
+}
+
+.footer {
+  margin-top: 10px;
+}
+
+/* COMPONENTS */
+
+.email-form {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
