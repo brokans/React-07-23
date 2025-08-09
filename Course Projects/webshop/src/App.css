@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+  background-color: #9BB0C1;
+}
+
+.lang {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
+
+.lang:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.lang:active {
+  padding: 1px;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+input:focus {
+  box-shadow: 0 0 10px blue;
+}
+
+.error:focus {
+  outline: none !important;
+  border: 2px solid red;
+}
+
+.map {
+  height: 400px;
+  margin: 20px;
+  border-radius: 14px;
+}
+
+.carousel {
+  width: 500px;
+  margin: auto;
+}
+
+.main-carousel {
+  background-color: black;
+  margin-top: auto;
+  width: 100%;
+}
+
+.carousel-img {
+  width: auto;
+  height: auto;
+}
+
+.homePage-carousel {
+  margin-top: -48px;
+  height: auto;
+}
